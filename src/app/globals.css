@@ -106,6 +106,50 @@ body {
   animation: settle 600ms var(--ease-out) both;
 }
 
+/* Registering the palette as colour types is what lets a theme change interpolate:
+   an unregistered custom property flips, a registered one crossfades, and every
+   rule reading it comes along for free. */
+@property --paper {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e8e9e4;
+}
+@property --paper-shade {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dfe0d9;
+}
+@property --ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #16181a;
+}
+@property --ink-soft {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5c6064;
+}
+@property --rule {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #b7bab0;
+}
+@property --dye {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2f3a8f;
+}
+
+:root {
+  transition:
+    --paper 320ms var(--ease-out),
+    --paper-shade 320ms var(--ease-out),
+    --ink 320ms var(--ease-out),
+    --ink-soft 320ms var(--ease-out),
+    --rule 320ms var(--ease-out),
+    --dye 320ms var(--ease-out);
+}
+
 /* Career is a timeline on a rail, so it does not read as one more ruled table. */
 .timeline {
   position: relative;
@@ -182,6 +226,7 @@ body {
     animation: none;
   }
 
+  :root,
   .entry::after,
   .arrow {
     transition: none;
