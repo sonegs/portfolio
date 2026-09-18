@@ -75,3 +75,40 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
+
+/* A single moment on load: the sheet is ruled and the display settles. */
+@keyframes rule-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rule-in {
+  transform-origin: left;
+  animation: rule-in 600ms var(--ease-out) both;
+}
+
+.settle {
+  animation: settle 600ms var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rule-in,
+  .settle {
+    animation: none;
+  }
+}
