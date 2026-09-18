@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Separator } from "@/components/ui/separator";
-import { career, careerStart, careInstructions, composition, profile, repositories } from "@/content";
+import { career, careerStart, careInstructions, composition, profile, repositories, testimonials } from "@/content";
 import { getT, isLanguage, languages, type Language } from "@/i18n";
 
 function Rule({ delay = 0 }: { delay?: number }) {
@@ -160,6 +160,49 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           ))}
         </ol>
       </section>
+
+      {testimonials.length > 0 && (
+        <section className="pt-20 md:pt-28">
+          <div className="flex items-baseline justify-between gap-4 pb-3">
+            <SectionTitle>{t("TESTIMONIALS")}</SectionTitle>
+            <a
+              className="label text-[0.68rem] text-ink-soft underline decoration-rule underline-offset-4 transition-colors duration-200 hover:text-dye hover:decoration-dye"
+              href={profile.linkedin}
+            >
+              {t("TESTIMONIALS_SOURCE")}
+            </a>
+          </div>
+          <Rule delay={80} />
+          {/* Scroll snapping does the carousel: it is one card today and a swipeable
+              rail the moment there is a second, with no JavaScript either way. The
+              container takes focus so it can also be walked with the keyboard. */}
+          <div className="rail pt-8" tabIndex={0} role="group" aria-label={t("TESTIMONIALS")}>
+            {testimonials.map((testimonial) => (
+              <figure key={testimonial.key} className="border border-rule/60 p-6 md:p-8">
+                <blockquote className="text-pretty text-lg leading-[1.5] md:text-xl">
+                  {t(`TESTIMONIAL_${testimonial.key}_TEXT`)
+                    .split("\n\n")
+                    .map((paragraph, index) => (
+                      <p key={paragraph} className={index > 0 ? "pt-4" : undefined}>
+                        {paragraph}
+                      </p>
+                    ))}
+                </blockquote>
+                <figcaption className="pt-6">
+                  <Separator className="bg-rule/60" />
+                  <p className="pt-4 text-lg" translate="no">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-ink-soft" translate="no">
+                    {testimonial.role}
+                  </p>
+                  <p className="label pt-2 text-[0.68rem] text-dye">{t(`TESTIMONIAL_${testimonial.key}_RELATION`)}</p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="grid grid-cols-12 gap-x-8 gap-y-14 pt-20 md:pt-28">
         <div className="col-span-12 md:col-span-6">

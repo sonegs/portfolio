@@ -20,6 +20,10 @@ export const repositories = [
   { key: "DRONES", name: "traffic-drones", stack: "React · JavaScript", year: "2021" },
 ];
 
+// LinkedIn recommendations. The name and the job title are proper nouns; the
+// relationship and the recommendation itself are copy, so they live in the locales.
+export const testimonials = [{ key: "JESUS_CORTES", name: "Jesus Cortes Cruz", role: "Senior Frontend Engineer" }];
+
 export const career = [
   { key: "SENIOR", from: "2023", to: null },
   { key: "MAYORAL", from: "2019", to: "2023" },

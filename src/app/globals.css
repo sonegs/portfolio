@@ -220,6 +220,29 @@ body {
   transform: none;
 }
 
+/* One card sits still, several become a swipeable rail. Snapping and the gutter
+   are the whole carousel: no library, no state, no buttons to keep in sync. */
+.rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 34rem);
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  padding-bottom: 1rem;
+}
+
+.rail > * {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 48rem) {
+  .rail {
+    grid-auto-columns: minmax(0, 85%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rule-in,
   .settle {
