@@ -57,3 +57,21 @@ body {
   outline: 2px solid var(--color-dye);
   outline-offset: 3px;
 }
+
+/* Width is a variable axis of Archivo (62-125): the display runs condensed and
+   running text at normal width. One family, two roles. */
+.display {
+  font-stretch: 66%;
+  font-weight: 680;
+  line-height: 0.84;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+  hyphens: manual;
+}
+
+.label {
+  font-stretch: 88%;
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
