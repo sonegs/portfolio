@@ -30,6 +30,10 @@ export const career = [
   { key: "AGENCY", from: "2016", to: "2019" },
 ];
 
+// Education. The school is a proper noun; the qualification is copy, so its name
+// lives in the locales next to everything else that gets translated.
+export const education: { key: string; school: string; from: string; to: string }[] = [];
+
 export const composition = [
   { material: "React / Next.js", percentage: 45 },
   { material: "TypeScript", percentage: 25 },

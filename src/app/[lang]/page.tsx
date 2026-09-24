@@ -2,7 +2,16 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Separator } from "@/components/ui/separator";
-import { career, careerStart, careInstructions, composition, profile, repositories, testimonials } from "@/content";
+import {
+  career,
+  careerStart,
+  careInstructions,
+  composition,
+  education,
+  profile,
+  repositories,
+  testimonials,
+} from "@/content";
 import { getT, isLanguage, languages, type Language } from "@/i18n";
 
 function Rule({ delay = 0 }: { delay?: number }) {
@@ -120,6 +129,28 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           ))}
         </ol>
       </section>
+
+      {education.length > 0 && (
+        <section className="pt-20 md:pt-28">
+          <div className="pb-3">
+            <SectionTitle>{t("EDUCATION")}</SectionTitle>
+          </div>
+          <Rule delay={80} />
+          <ul className="grid grid-cols-12 gap-x-8 gap-y-8 pt-8">
+            {education.map((entry) => (
+              <li key={entry.key} className="col-span-12 border-t border-rule/60 pt-4 md:col-span-4">
+                <p className="label text-[0.68rem] text-ink-soft">
+                  {entry.from} — {entry.to}
+                </p>
+                <h3 className="pt-2 text-xl md:text-2xl">{t(`EDUCATION_${entry.key}_TITLE`)}</h3>
+                <p className="text-ink-soft" translate="no">
+                  {entry.school}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section className="pt-20 md:pt-28">
         <div className="flex items-baseline justify-between gap-4 pb-3">
