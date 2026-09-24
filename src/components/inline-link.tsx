@@ -1,5 +1,5 @@
 // A link inside running text: underlined in the rule colour, dyed on hover.
-export function InlineLink({ href, children, ...rest }: React.ComponentProps<"a">) {
+export function InlineLink({ href, children, ...rest }: Omit<React.ComponentProps<"a">, "className">) {
   return (
     <a
       className="underline decoration-rule underline-offset-4 transition-colors duration-200 hover:text-dye hover:decoration-dye"
