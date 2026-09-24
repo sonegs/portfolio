@@ -10,6 +10,8 @@ export function isLanguage(value: string): value is Language {
   return (languages as readonly string[]).includes(value);
 }
 
+export type Translate = Awaited<ReturnType<typeof getT>>;
+
 // One instance per render: there is no language state to share between requests.
 export async function getT(language: Language) {
   const instance = createInstance();
