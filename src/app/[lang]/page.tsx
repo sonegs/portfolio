@@ -116,6 +116,8 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
               <a
                 className="grid grid-cols-12 items-baseline gap-x-6 py-5 md:py-6"
                 href={`${profile.github}/${repository.name}`}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <h3 className="col-span-9 min-w-0 text-xl md:col-span-4 md:text-2xl" translate="no">
                   {repository.name}

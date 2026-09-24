@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { career, careInstructions, composition, repositories, testimonials } from "../src/content.ts";
 
 const localesDir = "public/locales";
-const languages = readdirSync(localesDir);
+const languages = readdirSync(localesDir).filter((entry) => !entry.startsWith("."));
 const messages = Object.fromEntries(
   languages.map((language) => [
     language,

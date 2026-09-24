@@ -16,7 +16,7 @@ A husky pre-commit hook runs `format:check`, `lint` and `check:locales`.
 
 ## Where to edit what
 
-- `public/locales/<language>/common.json` — all the copy, with uppercase keys as in the other projects. Adding a language means creating the folder and listing it in `languages` in `src/i18n.ts`.
+- `public/locales/<language>/common.json` — all the copy, with uppercase keys. Adding a language means creating the folder and listing it in `languages` in `src/i18n.ts`.
 - `src/content.ts` — the data that is never translated: names, dates, technologies, percentages and repositories. A value in SCREAMING_SNAKE_CASE is a translation key.
   Identifiers, comments and this file are written in English; the copy lives in the language files.
 - `src/app/globals.css` — the design tokens: paper, ink, rule, dye, in light and dark, plus the load animation. The shadcn tokens hang off those same colours.
@@ -52,6 +52,3 @@ A spec sheet: data aligned in rows separated by hairline rules, a single family
 (variable Archivo, whose width axis serves as both condensed display and running text),
 grey-green paper, near-black ink and one indigo dye. A single moment of motion on
 load; everything else stays still.
-
-`.claude/skills/` holds the design skills used to build it (frontend-design,
-ui-ux-pro-max, animate, emil-design-eng, web-design-guidelines).
