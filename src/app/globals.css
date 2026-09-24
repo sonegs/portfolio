@@ -106,6 +106,21 @@ body {
   animation: settle 600ms var(--ease-out) both;
 }
 
+/* The global 404 is served without the layout, so no provider puts the theme class
+   on the document: that page asks the operating system instead. */
+@media (prefers-color-scheme: dark) {
+  .theme-auto {
+    color-scheme: dark;
+
+    --paper: #15171a;
+    --paper-shade: #1e2126;
+    --ink: #e8e9e4;
+    --ink-soft: #9ba1a3;
+    --rule: #3c4045;
+    --dye: #9aa7ff;
+  }
+}
+
 /* Registering the palette as colour types is what lets a theme change interpolate:
    an unregistered custom property flips, a registered one crossfades, and every
    rule reading it comes along for free. */

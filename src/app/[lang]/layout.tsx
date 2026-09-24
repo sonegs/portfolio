@@ -20,6 +20,8 @@ export const viewport: Viewport = {
   ],
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return languages.map((lang) => ({ lang }));
 }

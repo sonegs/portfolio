@@ -1,6 +1,10 @@
 {
   "SHEET_REVISION": "Ficha MCM / rev. 2026",
   "THEME_TOGGLE": "Cambiar de tema",
+  "NOT_FOUND_LABEL": "Error",
+  "NOT_FOUND_TITLE": "404 · Página no encontrada",
+  "NOT_FOUND_LEAD": "Esta página no existe. Puede que la dirección esté mal escrita o que el enlace haya caducado.",
+  "NOT_FOUND_BACK": "Volver al inicio",
   "ROLE": "Desarrollador frontend",
   "BASED_IN": "Base",
   "BASED_IN_VALUE": "Málaga, España",

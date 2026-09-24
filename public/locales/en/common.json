@@ -1,6 +1,10 @@
 {
   "SHEET_REVISION": "Spec MCM / rev. 2026",
   "THEME_TOGGLE": "Switch theme",
+  "NOT_FOUND_LABEL": "Error",
+  "NOT_FOUND_TITLE": "404 · Page not found",
+  "NOT_FOUND_LEAD": "This page does not exist. The address may be mistyped, or the link may have expired.",
+  "NOT_FOUND_BACK": "Back to the start",
   "ROLE": "Frontend developer",
   "BASED_IN": "Based in",
   "BASED_IN_VALUE": "Málaga, Spain",
