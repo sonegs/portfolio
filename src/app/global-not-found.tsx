@@ -1,9 +1,18 @@
 import { Archivo } from "next/font/google";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { defaultLanguage, getT } from "@/i18n";
 
 const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: ["wdth"] });
+
+// The layout never runs here, so the theme colour it declares has to be declared again
+// or the browser chrome stays light while the page is dark.
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#e8e9e4" },
+    { media: "(prefers-color-scheme: dark)", color: "#15171a" },
+  ],
+};
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getT(defaultLanguage);
@@ -21,7 +30,7 @@ export default async function GlobalNotFound() {
       <body className="font-sans">
         <main className="mx-auto flex min-h-dvh max-w-[78rem] flex-col justify-center px-5 pb-24 md:px-10">
           <p className="label text-[0.68rem] text-ink-soft">{t("NOT_FOUND_LABEL")}</p>
-          <p className="display pt-4 text-[clamp(4rem,22vw,14rem)] text-dye">404</p>
+          <h1 className="display pt-4 text-[clamp(4rem,22vw,14rem)] text-dye">404</h1>
           <p className="max-w-[46ch] text-pretty pt-6 text-lg md:text-xl">{t("NOT_FOUND_LEAD")}</p>
           <p className="pt-8">
             <a
