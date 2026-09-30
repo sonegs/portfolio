@@ -23,4 +23,4 @@ function Material({ item, t }: { item: (typeof composition)[number]; t: Translat
 
 CompositionList.Material = Material;
 
-export { CompositionList };
+export default CompositionList;

@@ -19,7 +19,7 @@ function LanguageLink({ language, current }: { language: Language; current: Lang
   );
 }
 
-export function LanguagePicker({ current }: { current: Language }) {
+function LanguagePicker({ current }: { current: Language }) {
   return (
     <ul className="flex gap-3">
       {languages.map((language) => (
@@ -30,3 +30,5 @@ export function LanguagePicker({ current }: { current: Language }) {
     </ul>
   );
 }
+
+export default LanguagePicker;

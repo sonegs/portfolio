@@ -37,4 +37,4 @@ function Item({ repository, t }: { repository: (typeof repositories)[number]; t:
 
 RepositoryList.Item = Item;
 
-export { RepositoryList };
+export default RepositoryList;

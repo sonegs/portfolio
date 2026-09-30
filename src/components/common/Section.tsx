@@ -1,4 +1,4 @@
-import { Rule } from "@/components/rule";
+import { Rule } from "@/components/common";
 
 // Every band of the sheet is the same three parts: a heading row, a hairline, a body.
 // They hang off Section so a caller composes what it needs in place — the bands with
@@ -32,4 +32,4 @@ Section.Title = Title;
 Section.Link = SectionLink;
 Section.Rule = Rule;
 
-export { Section };
+export default Section;

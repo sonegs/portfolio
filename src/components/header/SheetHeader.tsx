@@ -1,12 +1,12 @@
-import { DataSheet } from "@/components/data-sheet";
-import { InlineLink } from "@/components/inline-link";
-import { LanguagePicker } from "@/components/language-picker";
-import { Rule } from "@/components/rule";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { DataSheet } from "@/components/common";
+import { InlineLink } from "@/components/common";
+import { LanguagePicker } from "@/components/header";
+import { Rule } from "@/components/common";
+import { ThemeToggle } from "@/components/theme";
 import { careerStart, profile } from "@/content";
 import type { Language, Translate } from "@/i18n";
 
-export function SheetHeader({ t, lang }: { t: Translate; lang: Language }) {
+function SheetHeader({ t, lang }: { t: Translate; lang: Language }) {
   const years = new Date().getFullYear() - careerStart;
   const experience = t("EXPERIENCE_VALUE", { years });
   const mailto = `mailto:${profile.email}`;
@@ -47,3 +47,5 @@ export function SheetHeader({ t, lang }: { t: Translate; lang: Language }) {
     </header>
   );
 }
+
+export default SheetHeader;

@@ -40,4 +40,4 @@ function Card({ testimonial, t }: { testimonial: (typeof testimonials)[number]; 
 
 TestimonialRail.Card = Card;
 
-export { TestimonialRail };
+export default TestimonialRail;

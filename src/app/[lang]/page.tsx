@@ -1,14 +1,14 @@
 import { notFound } from "next/navigation";
-import { CareList } from "@/components/care-list";
-import { CareerTimeline } from "@/components/career-timeline";
-import { CompositionList } from "@/components/composition-list";
-import { EducationList } from "@/components/education-list";
+import { CareList } from "@/components/care";
+import { CareerTimeline } from "@/components/career";
+import { CompositionList } from "@/components/composition";
+import { EducationList } from "@/components/education";
 import { Portrait } from "@/components/portrait";
-import { RepositoryList } from "@/components/repository-list";
-import { Section } from "@/components/section";
-import { SheetFooter } from "@/components/sheet-footer";
-import { SheetHeader } from "@/components/sheet-header";
-import { TestimonialRail } from "@/components/testimonial-rail";
+import { RepositoryList } from "@/components/repositories";
+import { Section } from "@/components/common";
+import { SheetFooter } from "@/components/footer";
+import { SheetHeader } from "@/components/header";
+import { TestimonialRail } from "@/components/testimonials";
 import { career, careInstructions, composition, education, profile, repositories, testimonials } from "@/content";
 import { getT, isLanguage } from "@/i18n";
 

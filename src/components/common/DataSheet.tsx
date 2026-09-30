@@ -15,4 +15,4 @@ function Row({ term, children }: { term: string; children: React.ReactNode }) {
 
 DataSheet.Row = Row;
 
-export { DataSheet };
+export default DataSheet;

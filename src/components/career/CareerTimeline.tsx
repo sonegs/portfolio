@@ -30,4 +30,4 @@ function Entry({ stage, t }: { stage: (typeof career)[number]; t: Translate }) {
 
 CareerTimeline.Entry = Entry;
 
-export { CareerTimeline };
+export default CareerTimeline;

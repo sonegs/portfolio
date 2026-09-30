@@ -13,4 +13,4 @@ function Instruction({ children }: { children: React.ReactNode }) {
 
 CareList.Instruction = Instruction;
 
-export { CareList };
+export default CareList;

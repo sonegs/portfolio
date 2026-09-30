@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 // Both icons are always rendered and CSS decides which one shows, so server and
 // client render the same markup: no flash, no hydration mismatch.
-export function ThemeToggle({ label }: { label: string }) {
+function ThemeToggle({ label }: { label: string }) {
   const { resolvedTheme, setTheme } = useTheme();
 
   return (
@@ -23,3 +23,5 @@ export function ThemeToggle({ label }: { label: string }) {
     </Button>
   );
 }
+
+export default ThemeToggle;

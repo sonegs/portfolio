@@ -1,9 +1,9 @@
-import { InlineLink } from "@/components/inline-link";
-import { Rule } from "@/components/rule";
+import { InlineLink } from "@/components/common";
+import { Rule } from "@/components/common";
 import { profile } from "@/content";
 import type { Translate } from "@/i18n";
 
-export function SheetFooter({ t }: { t: Translate }) {
+function SheetFooter({ t }: { t: Translate }) {
   const year = new Date().getFullYear();
   const copyright = t("COPYRIGHT", { year, name: profile.name });
   const links = [
@@ -28,3 +28,5 @@ export function SheetFooter({ t }: { t: Translate }) {
     </footer>
   );
 }
+
+export default SheetFooter;

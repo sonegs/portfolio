@@ -22,4 +22,4 @@ function Entry({ entry, t }: { entry: (typeof education)[number]; t: Translate }
 
 EducationList.Entry = Entry;
 
-export { EducationList };
+export default EducationList;
