@@ -106,6 +106,33 @@ body {
   animation: settle 600ms var(--ease-out) both;
 }
 
+/* A photograph on a sheet that only owns three colours. Greyscale first, then a breath
+   of dye through a colour blend, so the portrait belongs to the palette instead of
+   sitting on top of it. Dark takes it down a stop: a full-brightness photograph glares
+   against near-black. */
+.portrait {
+  position: relative;
+  isolation: isolate;
+}
+
+.portrait img {
+  filter: grayscale(1) contrast(1.06);
+}
+
+.portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-dye);
+  mix-blend-mode: color;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.dark .portrait img {
+  filter: grayscale(1) contrast(1.02) brightness(0.88);
+}
+
 /* The global 404 is served without the layout, so no provider puts the theme class
    on the document: that page asks the operating system instead. */
 @media (prefers-color-scheme: dark) {

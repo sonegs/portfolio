@@ -24,7 +24,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
       <SheetHeader t={t} lang={lang} />
 
       <Section className="grid grid-cols-12 items-start gap-x-8 gap-y-8 pt-16 md:pt-24">
-        <div className="col-span-12 md:col-span-3">
+        <div className="col-span-12 md:col-span-3 md:pt-[0.7rem]">
           <Portrait t={t} />
         </div>
         <p className="col-span-12 min-w-0 max-w-[62ch] text-pretty text-lg leading-[1.55] md:col-span-9 md:text-[1.35rem]">
