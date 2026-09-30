@@ -113,6 +113,8 @@ body {
 .portrait {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--radius);
 }
 
 .portrait img {
@@ -413,5 +415,5 @@ body {
   --border: var(--rule);
   --input: var(--rule);
   --ring: var(--dye);
-  --radius: 0rem;
+  --radius: 0.25rem;
 }

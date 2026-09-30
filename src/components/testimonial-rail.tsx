@@ -15,7 +15,7 @@ function TestimonialRail({ label, children }: { label: string; children: React.R
 
 function Card({ testimonial, t }: { testimonial: (typeof testimonials)[number]; t: Translate }) {
   return (
-    <figure className="border border-rule/60 p-6 md:p-8">
+    <figure className="rounded-lg border border-rule/60 p-6 md:p-8">
       <blockquote className="text-pretty text-lg leading-[1.5] md:text-xl">
         {t(`TESTIMONIAL_${testimonial.key}_TEXT`)
           .split("\n\n")
