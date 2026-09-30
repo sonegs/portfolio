@@ -6,13 +6,17 @@ function CompositionList({ children }: { children: React.ReactNode }) {
 }
 
 function Material({ item, t }: { item: (typeof composition)[number]; t: Translate }) {
+  const name = t(item.material);
+  const share = `${item.percentage}%`;
+  const bar = { width: share };
+
   return (
     <li className="border-b border-rule/60 py-3">
       <div className="flex items-baseline justify-between gap-4">
-        <span translate="no">{t(item.material)}</span>
-        <span className="text-ink-soft">{item.percentage}%</span>
+        <span translate="no">{name}</span>
+        <span className="text-ink-soft">{share}</span>
       </div>
-      <div aria-hidden className="mt-2 h-[2px] bg-dye" style={{ width: `${item.percentage}%` }} />
+      <div aria-hidden className="mt-2 h-[2px] bg-dye" style={bar} />
     </li>
   );
 }

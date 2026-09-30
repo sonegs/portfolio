@@ -14,16 +14,15 @@ function TestimonialRail({ label, children }: { label: string; children: React.R
 }
 
 function Card({ testimonial, t }: { testimonial: (typeof testimonials)[number]; t: Translate }) {
+  const paragraphs = t(`TESTIMONIAL_${testimonial.key}_TEXT`).split("\n\n");
+  const relation = t(`TESTIMONIAL_${testimonial.key}_RELATION`);
+
   return (
     <figure className="rounded-lg border border-rule/60 p-6 md:p-8">
-      <blockquote className="text-pretty text-lg leading-[1.5] md:text-xl">
-        {t(`TESTIMONIAL_${testimonial.key}_TEXT`)
-          .split("\n\n")
-          .map((paragraph, index) => (
-            <p key={paragraph} className={index > 0 ? "pt-4" : undefined}>
-              {paragraph}
-            </p>
-          ))}
+      <blockquote className="space-y-4 text-pretty text-lg leading-[1.5] md:text-xl">
+        {paragraphs.map((paragraph) => (
+          <p key={paragraph}>{paragraph}</p>
+        ))}
       </blockquote>
       <figcaption className="pt-6">
         <Separator className="bg-rule/60" />
@@ -33,7 +32,7 @@ function Card({ testimonial, t }: { testimonial: (typeof testimonials)[number]; 
         <p className="text-ink-soft" translate="no">
           {testimonial.role}
         </p>
-        <p className="label pt-2 text-[0.68rem] text-dye">{t(`TESTIMONIAL_${testimonial.key}_RELATION`)}</p>
+        <p className="label pt-2 text-[0.68rem] text-dye">{relation}</p>
       </figcaption>
     </figure>
   );

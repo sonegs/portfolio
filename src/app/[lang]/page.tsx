@@ -18,6 +18,8 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
     notFound();
   }
   const t = await getT(lang);
+  const hasEducation = education.length > 0;
+  const hasTestimonials = testimonials.length > 0;
 
   return (
     <main className="mx-auto max-w-[78rem] overflow-x-clip px-5 pb-28 md:px-10">
@@ -44,7 +46,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </CareerTimeline>
       </Section>
 
-      {education.length > 0 && (
+      {hasEducation && (
         <Section>
           <Section.Header>
             <Section.Title>{t("EDUCATION")}</Section.Title>
@@ -73,7 +75,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </RepositoryList>
       </Section>
 
-      {testimonials.length > 0 && (
+      {hasTestimonials && (
         <Section>
           <Section.Header>
             <Section.Title>{t("TESTIMONIALS")}</Section.Title>
