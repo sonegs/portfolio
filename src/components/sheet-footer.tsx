@@ -14,7 +14,9 @@ export function SheetFooter({ t }: { t: Translate }) {
     <footer className="pt-24 md:pt-32">
       <Rule delay={80} />
       <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 pt-5">
-        <p className="display text-[clamp(2rem,7vw,4.5rem)]">{t("LETS_TALK")}</p>
+        <p className="label text-[0.68rem] text-ink-soft">
+          {t("COPYRIGHT", { year: new Date().getFullYear(), name: profile.name })}
+        </p>
         <ul className="flex flex-wrap gap-x-8 gap-y-2 text-lg">
           {links.map((link) => (
             <li key={link.text}>

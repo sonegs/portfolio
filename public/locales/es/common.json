@@ -41,6 +41,6 @@
   "CARE_DEPENDENCIES": "Sin dependencias que no paguen su peso.",
   "CARE_REVIEW": "Se revisa y se prueba antes de mezclar.",
   "CARE_MOTION": "Respeta el movimiento reducido del sistema.",
-  "LETS_TALK": "Hablamos",
+  "COPYRIGHT": "© {{year}} {{name}}. Todos los derechos reservados.",
   "LINK_EMAIL": "Correo"
 }

@@ -41,6 +41,6 @@
   "CARE_DEPENDENCIES": "No dependencies that don't pay their weight.",
   "CARE_REVIEW": "Reviewed and tested before merging.",
   "CARE_MOTION": "Respects the system's reduced motion setting.",
-  "LETS_TALK": "Let's talk",
+  "COPYRIGHT": "© {{year}} {{name}}. All rights reserved.",
   "LINK_EMAIL": "Email"
 }
