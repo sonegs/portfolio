@@ -3,6 +3,7 @@ import { CareList } from "@/components/care-list";
 import { CareerTimeline } from "@/components/career-timeline";
 import { CompositionList } from "@/components/composition-list";
 import { EducationList } from "@/components/education-list";
+import { Portrait } from "@/components/portrait";
 import { RepositoryList } from "@/components/repository-list";
 import { Section } from "@/components/section";
 import { SheetFooter } from "@/components/sheet-footer";
@@ -22,8 +23,11 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
     <main className="mx-auto max-w-[78rem] overflow-x-clip px-5 pb-28 md:px-10">
       <SheetHeader t={t} lang={lang} />
 
-      <Section className="grid grid-cols-12 gap-x-8 pt-16 md:pt-24">
-        <p className="col-span-12 min-w-0 max-w-[62ch] text-pretty text-lg leading-[1.55] md:col-span-9 md:col-start-4 md:text-[1.35rem]">
+      <Section className="grid grid-cols-12 items-start gap-x-8 gap-y-8 pt-16 md:pt-24">
+        <div className="col-span-12 md:col-span-3">
+          <Portrait t={t} />
+        </div>
+        <p className="col-span-12 min-w-0 max-w-[62ch] text-pretty text-lg leading-[1.55] md:col-span-9 md:text-[1.35rem]">
           {t("SUMMARY")}
         </p>
       </Section>
