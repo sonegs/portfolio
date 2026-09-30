@@ -15,9 +15,15 @@ function Entry({ stage, t }: { stage: (typeof career)[number]; t: Translate }) {
         {t(`CAREER_${stage.key}_ROLE`)}
         <span className="block text-base text-ink-soft md:text-lg">{t(`CAREER_${stage.key}_COMPANY`)}</span>
       </h3>
-      <p className="col-span-12 min-w-0 max-w-[48ch] pt-2 text-ink-soft md:col-span-5 md:pt-0">
-        {t(`CAREER_${stage.key}_DETAIL`)}
-      </p>
+      <div className="col-span-12 min-w-0 max-w-[48ch] pt-2 text-ink-soft md:col-span-5 md:pt-0">
+        {t(`CAREER_${stage.key}_DETAIL`)
+          .split("\n\n")
+          .map((paragraph, index) => (
+            <p key={paragraph} className={index > 0 ? "pt-3" : undefined}>
+              {paragraph}
+            </p>
+          ))}
+      </div>
     </li>
   );
 }
