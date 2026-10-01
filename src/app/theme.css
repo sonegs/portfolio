@@ -1,0 +1,212 @@
+/* The theme: every colour the project owns, and nothing else.
+   Six tokens in two values. A component never writes a colour, it writes a token, so
+   switching theme is redefining these six and touching no component.
+
+   Order matters here: .dark must follow :root, the system fallback must follow .dark,
+   and the shadcn mapping must come last so it wins over the defaults it ships with. */
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-shade: var(--paper-shade);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-dye: var(--dye);
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Light: a sheet of paper. Dark: the same sheet in negative, not an automatic inversion. */
+:root {
+  color-scheme: light;
+
+  --paper: #e8e9e4;
+  --paper-shade: #dfe0d9;
+  --ink: #16181a;
+  --ink-soft: #5c6064;
+  --rule: #b7bab0;
+  --dye: #2f3a8f;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --paper: #15171a;
+  --paper-shade: #1e2126;
+  --ink: #e8e9e4;
+  --ink-soft: #9ba1a3;
+  --rule: #3c4045;
+  --dye: #9aa7ff;
+}
+
+/* Registering the palette as colour types is what lets a theme change interpolate:
+   an unregistered custom property flips, a registered one crossfades, and every
+   rule reading it comes along for free. */
+@property --paper {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #e8e9e4;
+}
+@property --paper-shade {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #dfe0d9;
+}
+@property --ink {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #16181a;
+}
+@property --ink-soft {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #5c6064;
+}
+@property --rule {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #b7bab0;
+}
+@property --dye {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2f3a8f;
+}
+
+:root {
+  transition:
+    --paper 320ms var(--ease-out),
+    --paper-shade 320ms var(--ease-out),
+    --ink 320ms var(--ease-out),
+    --ink-soft 320ms var(--ease-out),
+    --rule 320ms var(--ease-out),
+    --dye 320ms var(--ease-out);
+}
+
+/* The global 404 is served without the layout, so no provider puts the theme class
+   on the document: that page asks the operating system instead. */
+@media (prefers-color-scheme: dark) {
+  .theme-auto {
+    color-scheme: dark;
+
+    --paper: #15171a;
+    --paper-shade: #1e2126;
+    --ink: #e8e9e4;
+    --ink-soft: #9ba1a3;
+    --rule: #3c4045;
+    --dye: #9aa7ff;
+  }
+}
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+/* The shadcn components drink from this same palette, in both themes. */
+:root,
+.dark {
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--paper);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--dye);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-shade);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-shade);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--paper-shade);
+  --accent-foreground: var(--ink);
+  --destructive: #b3261e;
+  --border: var(--rule);
+  --input: var(--rule);
+  --ring: var(--dye);
+  --radius: 0.25rem;
+}
