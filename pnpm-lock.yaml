@@ -7,6 +7,7 @@ specifiers:
   '@testing-library/dom': ^10.4.2
   '@testing-library/jest-dom': ^7.0.1
   '@testing-library/react': ^16.3.3
+  '@testing-library/user-event': ^14.6.7
   '@types/jest': ^30.0.0
   '@types/node': ^24
   '@types/react': ^19
@@ -52,6 +53,7 @@ devDependencies:
   '@testing-library/dom': 10.4.2
   '@testing-library/jest-dom': 7.0.1_e5za34odta4er2zuwbxm5kq5uy
   '@testing-library/react': 16.3.3_fn4x4j7rtpstxaiki5da556yea
+  '@testing-library/user-event': 14.6.7_e5za34odta4er2zuwbxm5kq5uy
   '@types/jest': 30.0.0
   '@types/node': 24.13.5
   '@types/react': 19.3.0
@@ -3229,6 +3231,15 @@ packages:
       '@types/react-dom': 19.3.0_@types+react@19.3.0
       react: 19.2.8
       react-dom: 19.2.8_react@19.2.8
+    dev: true
+
+  /@testing-library/user-event/14.6.7_e5za34odta4er2zuwbxm5kq5uy:
+    resolution: {integrity: sha512-MPCpX8bxe8zS+JmmTwLp8jd0dy1rAm60Te/SL8JrQM3qvQJcBOs1d7IefJMyZzqM3EWBrDn/LWDt1BCGu4ASfg==}
+    engines: {node: '>=12', npm: '>=6'}
+    peerDependencies:
+      '@testing-library/dom': '>=7.21.4'
+    dependencies:
+      '@testing-library/dom': 10.4.2
     dev: true
 
   /@ts-morph/common/0.27.0:
