@@ -12,7 +12,7 @@
   "EXPERIENCE_VALUE": "{{years}} años",
   "FOCUS": "Foco",
   "EMAIL": "Correo",
-  "SUMMARY": "Construyo el frontend de una compañía de moda infantil: aplicaciones que usan a diario tanto sus tiendas como sus clientes mayoristas, y las herramientas internas que las sostienen. Sobre todo React y TypeScript, algo de Angular e Ionic, y todo ello usado por gente que no eligió su software. Me interesa el código que sigue siendo legible dos años después y las interfaces que no obligan a nadie a aprender nada nuevo para hacer su trabajo.",
+  "SUMMARY": "Construyo el frontend de una compañía de moda infantil: aplicaciones que usan a diario tanto sus tiendas como sus clientes mayoristas, y las herramientas internas que las sostienen. Sobre todo React y TypeScript, algo de Angular, PHP y MySQL, y todo ello usado por gente que no eligió su software. Me interesa el código que sigue siendo legible dos años después y las interfaces que no obligan a nadie a aprender nada nuevo para hacer su trabajo.",
   "PORTRAIT_ALT": "Retrato de {{name}}",
   "PUBLIC_CODE": "Código público",
   "REPO_SHOPPING_LIST_DESCRIPTION": "Lista de la compra conectada a las APIs de varios supermercados y compartida con tus contactos.",

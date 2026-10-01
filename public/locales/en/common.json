@@ -12,7 +12,7 @@
   "EXPERIENCE_VALUE": "{{years}} years",
   "FOCUS": "Focus",
   "EMAIL": "Email",
-  "SUMMARY": "I build the frontend of a children's fashion company: the applications its shops and its wholesale clients use every day, and the internal tools that hold them up. Mostly React and TypeScript, some Angular and Ionic, all of it used by people who did not get to choose their software. I care about code that still reads well two years later, and about interfaces that ask nobody to learn something new to do their job.",
+  "SUMMARY": "I build the frontend of a children's fashion company: the applications its shops and its wholesale clients use every day, and the internal tools that hold them up. Mostly React and TypeScript, some Angular, PHP and MySQL, all of it used by people who did not get to choose their software. I care about code that still reads well two years later, and about interfaces that ask nobody to learn something new to do their job.",
   "PORTRAIT_ALT": "Portrait of {{name}}",
   "PUBLIC_CODE": "Public code",
   "REPO_SHOPPING_LIST_DESCRIPTION": "Shopping list wired to several supermarket APIs and shared with your contacts.",

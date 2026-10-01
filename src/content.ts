@@ -38,7 +38,8 @@ export const education = [
 export const composition = [
   { material: "React / Next.js", percentage: 45 },
   { material: "TypeScript", percentage: 25 },
-  { material: "Angular / Ionic", percentage: 15 },
+  { material: "PHP / MySQL", percentage: 10 },
+  { material: "Angular", percentage: 5 },
   { material: "Node", percentage: 10 },
   { material: "COMPOSITION_OTHER", percentage: 5 },
 ];
