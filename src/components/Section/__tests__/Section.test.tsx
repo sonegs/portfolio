@@ -4,7 +4,7 @@ import { Section, SectionHeader, SectionLink, SectionTitle } from "@/components/
 import { render, screen } from "@testing-library/react";
 
 describe("Section", () => {
-  it("titles a band with a second-level heading, under the page's h1", () => {
+  it("should title a band with a second-level heading, under the page's h1", () => {
     render(
       <Section>
         <SectionHeader>
@@ -16,7 +16,7 @@ describe("Section", () => {
     expect(screen.getByRole("heading", { level: 2, name: "Trayectoria" })).toBeInTheDocument();
   });
 
-  it("lets a band leave out the link on the right rather than pass an empty one", () => {
+  it("should let a band leave out the link on the right rather than pass an empty one", () => {
     render(
       <Section>
         <SectionHeader>
@@ -28,7 +28,7 @@ describe("Section", () => {
     expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
-  it("carries the link when a band has one", () => {
+  it("should carry the link when a band has one", () => {
     render(
       <Section>
         <SectionHeader>
@@ -46,7 +46,7 @@ describe("Section", () => {
 });
 
 describe("DataSheet", () => {
-  it("pairs each term with its value as a description list", () => {
+  it("should pair each term with its value as a description list", () => {
     const { container } = render(
       <DataSheet>
         <DataSheet.Row term="Base">Málaga, España</DataSheet.Row>
@@ -59,7 +59,7 @@ describe("DataSheet", () => {
 });
 
 describe("InlineLink", () => {
-  it("passes through the attributes a caller adds", () => {
+  it("should pass through the attributes a caller adds", () => {
     render(
       <InlineLink href="mailto:sonegs@hotmail.com" translate="no">
         sonegs@hotmail.com

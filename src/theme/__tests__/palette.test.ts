@@ -24,28 +24,28 @@ const EXPECTED = {
 } as const;
 
 describe("palette", () => {
-  it("matches the light values in the stylesheet", () => {
+  it("should match the light values in the stylesheet", () => {
     const css = tokensOf(":root");
     for (const [key, token] of Object.entries(EXPECTED)) {
       expect(css[token]).toBe(palette.light[key as keyof typeof palette.light]);
     }
   });
 
-  it("matches the dark values in the stylesheet", () => {
+  it("should match the dark values in the stylesheet", () => {
     const css = tokensOf("\\.dark");
     for (const [key, token] of Object.entries(EXPECTED)) {
       expect(css[token]).toBe(palette.dark[key as keyof typeof palette.dark]);
     }
   });
 
-  it("keeps the system fallback the 404 uses in step with the dark theme", () => {
+  it("should keep the system fallback the 404 uses in step with the dark theme", () => {
     const fallback = tokensOf("\\.theme-auto");
     for (const [key, token] of Object.entries(EXPECTED)) {
       expect(fallback[token]).toBe(palette.dark[key as keyof typeof palette.dark]);
     }
   });
 
-  it("registers the light values as the initial value of each token", () => {
+  it("should register the light values as the initial value of each token", () => {
     for (const [key, token] of Object.entries(EXPECTED)) {
       const registered = new RegExp(`@property --${token}\\s*\\{[^}]*initial-value:\\s*(#[0-9a-f]{6})`).exec(css);
       expect(registered?.[1]).toBe(palette.light[key as keyof typeof palette.light]);

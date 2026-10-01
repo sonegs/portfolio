@@ -6,7 +6,7 @@ import { getT } from "@/i18n";
 const t = getT("es");
 
 describe("CarePanel", () => {
-  it("lists every instruction, translated", () => {
+  it("should list every instruction, translated", () => {
     render(<CarePanel lang="es" />);
 
     for (const instruction of careInstructions) {
@@ -14,7 +14,7 @@ describe("CarePanel", () => {
     }
   });
 
-  it("keeps the bullets out of the reading, they are marks and not words", () => {
+  it("should keep the bullets out of the reading, they are marks and not words", () => {
     const { container } = render(<CarePanel lang="es" />);
 
     expect(container.querySelectorAll("li > span[aria-hidden]")).toHaveLength(careInstructions.length);

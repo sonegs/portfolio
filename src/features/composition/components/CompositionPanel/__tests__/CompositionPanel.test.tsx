@@ -6,7 +6,7 @@ import { getT } from "@/i18n";
 const t = getT("es");
 
 describe("CompositionPanel", () => {
-  it("draws every bar to the width its percentage claims", () => {
+  it("should draw every bar to the width its percentage claims", () => {
     const { container } = render(<CompositionPanel lang="es" />);
 
     const bars = [...container.querySelectorAll("li > div[aria-hidden]")];
@@ -16,13 +16,13 @@ describe("CompositionPanel", () => {
     });
   });
 
-  it("hides the bars from readers, the number beside each already says it", () => {
+  it("should show the percentage beside every bar", () => {
     render(<CompositionPanel lang="es" />);
 
     expect(screen.getByText(`${composition[0].percentage}%`)).toBeInTheDocument();
   });
 
-  it("resolves a material written as a key and leaves a plain name alone", () => {
+  it("should resolve a material written as a key and leave a plain name alone", () => {
     render(<CompositionPanel lang="es" />);
 
     expect(screen.getByText(t("COMPOSITION_OTHER"))).toBeInTheDocument();

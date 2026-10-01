@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import { profile } from "@/content";
 
 describe("Portrait", () => {
-  it("describes itself with the name, interpolated and not left as a placeholder", () => {
+  it("should describe itself with the name, interpolated and not left as a placeholder", () => {
     render(<Portrait lang="es" />);
 
     const image = screen.getByRole("img");
@@ -11,7 +11,7 @@ describe("Portrait", () => {
     expect(image.getAttribute("alt")).not.toContain("{{");
   });
 
-  it("carries its intrinsic size, so the page does not jump when it loads", () => {
+  it("should carry its intrinsic size, so the page does not jump when it loads", () => {
     render(<Portrait lang="es" />);
 
     const image = screen.getByRole("img");
@@ -19,7 +19,7 @@ describe("Portrait", () => {
     expect(image).toHaveAttribute("height");
   });
 
-  it("is not lazy: it is the first thing above the fold", () => {
+  it("should not be lazy: it is the first thing above the fold", () => {
     render(<Portrait lang="es" />);
 
     expect(screen.getByRole("img")).not.toHaveAttribute("loading", "lazy");

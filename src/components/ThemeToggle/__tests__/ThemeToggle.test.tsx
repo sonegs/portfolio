@@ -15,20 +15,20 @@ describe("ThemeToggle", () => {
     resolvedTheme = "light";
   });
 
-  it("names itself, since it only shows an icon", () => {
+  it("should name itself, since it only shows an icon", () => {
     render(<ThemeToggle label="Cambiar de tema" />);
 
     expect(screen.getByRole("button", { name: "Cambiar de tema" })).toBeInTheDocument();
   });
 
-  it("goes to dark when it is light", async () => {
+  it("should go to dark when it is light", async () => {
     render(<ThemeToggle label="Cambiar de tema" />);
     await userEvent.click(screen.getByRole("button"));
 
     expect(setTheme).toHaveBeenCalledWith("dark");
   });
 
-  it("goes back to light when it is dark", async () => {
+  it("should go back to light when it is dark", async () => {
     resolvedTheme = "dark";
     render(<ThemeToggle label="Cambiar de tema" />);
     await userEvent.click(screen.getByRole("button"));
@@ -36,7 +36,7 @@ describe("ThemeToggle", () => {
     expect(setTheme).toHaveBeenCalledWith("light");
   });
 
-  it("renders both icons and lets CSS pick, so server and client agree on the markup", () => {
+  it("should render both icons and let CSS pick, so server and client agree on the markup", () => {
     const { container } = render(<ThemeToggle label="Cambiar de tema" />);
 
     expect(container.querySelectorAll("svg")).toHaveLength(2);
