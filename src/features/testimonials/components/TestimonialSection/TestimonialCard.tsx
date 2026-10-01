@@ -6,7 +6,6 @@ import { toParagraphs } from "@/lib/paragraphs";
 function TestimonialCard({ testimonial, lang }: { testimonial: (typeof testimonials)[number]; lang: Language }) {
   const t = getT(lang);
   const paragraphs = toParagraphs(t(`TESTIMONIAL_${testimonial.key}_TEXT`));
-  const relation = t(`TESTIMONIAL_${testimonial.key}_RELATION`);
 
   return (
     <figure className="rounded-lg border border-rule/60 p-6 md:p-8">
@@ -23,7 +22,7 @@ function TestimonialCard({ testimonial, lang }: { testimonial: (typeof testimoni
         <p className="text-ink-soft" translate="no">
           {testimonial.role}
         </p>
-        <p className="label pt-2 text-[0.68rem] text-dye">{relation}</p>
+        <p className="label pt-2 text-[0.68rem] text-dye">{t(`TESTIMONIAL_${testimonial.key}_RELATION`)}</p>
       </figcaption>
     </figure>
   );

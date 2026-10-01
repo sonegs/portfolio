@@ -9,8 +9,6 @@ import { getT, type Language } from "@/i18n";
 function SheetHeader({ lang }: { lang: Language }) {
   const t = getT(lang);
   const years = new Date().getFullYear() - careerStart;
-  const experience = t("EXPERIENCE_VALUE", { years });
-  const mailto = `mailto:${profile.email}`;
 
   return (
     <header className="pt-6">
@@ -34,12 +32,12 @@ function SheetHeader({ lang }: { lang: Language }) {
         </div>
         <DataSheet className="col-span-12 self-end text-[0.95rem] md:col-span-4 md:col-start-9">
           <DataSheet.Row term={t("BASED_IN")}>{t("BASED_IN_VALUE")}</DataSheet.Row>
-          <DataSheet.Row term={t("EXPERIENCE")}>{experience}</DataSheet.Row>
+          <DataSheet.Row term={t("EXPERIENCE")}>{t("EXPERIENCE_VALUE", { years })}</DataSheet.Row>
           <DataSheet.Row term={t("FOCUS")}>
             <span translate="no">{profile.focus}</span>
           </DataSheet.Row>
           <DataSheet.Row term={t("EMAIL")}>
-            <InlineLink href={mailto} translate="no">
+            <InlineLink href={`mailto:${profile.email}`} translate="no">
               {profile.email}
             </InlineLink>
           </DataSheet.Row>
