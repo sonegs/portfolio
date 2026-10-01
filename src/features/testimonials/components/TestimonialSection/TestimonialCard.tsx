@@ -1,10 +1,11 @@
 import { Separator } from "@/components/ui/separator";
 import type { testimonials } from "@/content";
 import { getT, type Language } from "@/i18n";
+import { toParagraphs } from "@/lib/paragraphs";
 
 function TestimonialCard({ testimonial, lang }: { testimonial: (typeof testimonials)[number]; lang: Language }) {
   const t = getT(lang);
-  const paragraphs = t(`TESTIMONIAL_${testimonial.key}_TEXT`).split("\n\n");
+  const paragraphs = toParagraphs(t(`TESTIMONIAL_${testimonial.key}_TEXT`));
   const relation = t(`TESTIMONIAL_${testimonial.key}_RELATION`);
 
   return (

@@ -1,5 +1,6 @@
 import type { career } from "@/content";
 import { getT, type Language } from "@/i18n";
+import { toParagraphs } from "@/lib/paragraphs";
 
 function CareerEntry({ stage, lang }: { stage: (typeof career)[number]; lang: Language }) {
   const t = getT(lang);
@@ -7,7 +8,7 @@ function CareerEntry({ stage, lang }: { stage: (typeof career)[number]; lang: La
   const period = `${stage.from} — ${stage.to ?? t("TODAY")}`;
   const role = t(`CAREER_${stage.key}_ROLE`);
   const company = t(`CAREER_${stage.key}_COMPANY`);
-  const paragraphs = t(`CAREER_${stage.key}_DETAIL`).split("\n\n");
+  const paragraphs = toParagraphs(t(`CAREER_${stage.key}_DETAIL`));
 
   return (
     <li className="grid grid-cols-12 gap-x-6 pb-10 last:pb-0" data-current={isCurrent}>
