@@ -1,11 +1,11 @@
 import { render } from "@testing-library/react";
-import { DataSheet } from "@/components/DataSheet";
+import { DataSheet, DataSheetRow } from "@/components/DataSheet";
 
 describe("DataSheet", () => {
   it("should pair each term with its value as a description list", () => {
     const { container } = render(
       <DataSheet>
-        <DataSheet.Row term="Base">Málaga, España</DataSheet.Row>
+        <DataSheetRow term="Base">Málaga, España</DataSheetRow>
       </DataSheet>,
     );
 

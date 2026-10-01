@@ -1,4 +1,4 @@
-import { DataSheet } from "@/components/DataSheet";
+import { DataSheet, DataSheetRow } from "@/components/DataSheet";
 import { InlineLink } from "@/components/InlineLink";
 import { LanguagePicker } from "@/components/LanguagePicker";
 import { Rule } from "@/components/Rule";
@@ -31,16 +31,16 @@ function SheetHeader({ lang }: { lang: Language }) {
           </p>
         </div>
         <DataSheet className="col-span-12 self-end text-[0.95rem] md:col-span-4 md:col-start-9">
-          <DataSheet.Row term={t("BASED_IN")}>{t("BASED_IN_VALUE")}</DataSheet.Row>
-          <DataSheet.Row term={t("EXPERIENCE")}>{t("EXPERIENCE_VALUE", { years })}</DataSheet.Row>
-          <DataSheet.Row term={t("FOCUS")}>
+          <DataSheetRow term={t("BASED_IN")}>{t("BASED_IN_VALUE")}</DataSheetRow>
+          <DataSheetRow term={t("EXPERIENCE")}>{t("EXPERIENCE_VALUE", { years })}</DataSheetRow>
+          <DataSheetRow term={t("FOCUS")}>
             <span translate="no">{profile.focus}</span>
-          </DataSheet.Row>
-          <DataSheet.Row term={t("EMAIL")}>
+          </DataSheetRow>
+          <DataSheetRow term={t("EMAIL")}>
             <InlineLink href={`mailto:${profile.email}`} translate="no">
               {profile.email}
             </InlineLink>
-          </DataSheet.Row>
+          </DataSheetRow>
         </DataSheet>
       </div>
     </header>
