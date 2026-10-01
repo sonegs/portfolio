@@ -14,8 +14,6 @@ export function generateStaticParams() {
   return languages.map((lang) => ({ lang }));
 }
 
-// The same sheet, cropped to a card: the role in condensed Archivo (SIL OFL) over
-// paper, one rule, and the data row underneath.
 export default async function OpenGraphImage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   if (!isLanguage(lang)) {

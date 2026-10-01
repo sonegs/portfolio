@@ -1,7 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { defaultLanguage, isLanguage } from "@/i18n";
 
-// The root has no page: send it to the browser's language, or to the default one.
 export function middleware(request: NextRequest) {
   const preferred = request.headers
     .get("accept-language")

@@ -10,7 +10,7 @@ export const profile = {
   focus: "React · TypeScript · Next.js",
 };
 
-// First year of professional work: the header renders it as a count of years.
+// First year of professional work: the header counts the years from here.
 export const careerStart = 2020;
 
 export const repositories = [
@@ -20,8 +20,6 @@ export const repositories = [
   { key: "DRONES", name: "traffic-drones", stack: "React · JavaScript", year: "2021" },
 ];
 
-// LinkedIn recommendations. The name and the job title are proper nouns; the
-// relationship and the recommendation itself are copy, so they live in the locales.
 export const testimonials = [{ key: "JESUS_CORTES", name: "Jesus Cortes Cruz", role: "Senior Frontend Engineer" }];
 
 export const career = [
@@ -29,8 +27,6 @@ export const career = [
   { key: "PYMES", from: "2020", to: "2022" },
 ];
 
-// Education. The school is a proper noun; the qualification is copy, so its name
-// lives in the locales next to everything else that gets translated.
 export const education = [
   { key: "MASTER_FRONTEND", school: "Lemoncoders", from: "2021", to: "2022" },
   { key: "JS_BOOTCAMP", school: "Lemoncoders", from: "2020", to: "2020" },

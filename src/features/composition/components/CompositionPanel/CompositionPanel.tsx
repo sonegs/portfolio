@@ -4,8 +4,6 @@ import { composition } from "@/content";
 import { getT, type Language } from "@/i18n";
 import CompositionMaterial from "./CompositionMaterial";
 
-// A panel, not a band: it shares a Section with the care instructions, and the page
-// owns that two-column grid.
 function CompositionPanel({ lang }: { lang: Language }) {
   const t = getT(lang);
 

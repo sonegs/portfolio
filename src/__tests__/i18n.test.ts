@@ -26,8 +26,6 @@ describe("getT", () => {
   it("should interpolate without escaping: React already escapes, doing it twice mangles the text", () => {
     const t = getT("es");
 
-    // & and ' are the characters i18next's escaper does touch, so this fails if
-    // escapeValue is ever turned back on.
     expect(t("COPYRIGHT", { year: 2026, name: "O'Brien & Co" })).toContain("O'Brien & Co");
   });
 

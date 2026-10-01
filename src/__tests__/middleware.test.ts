@@ -44,9 +44,6 @@ describe("middleware", () => {
     expect(response.status).toBe(307);
   });
 
-  // Known limit: tags are taken in the order they arrive and q weights are not
-  // compared, so a header that lists a lower-weighted tag first wins. Browsers send
-  // them in descending order, so this does not come up in practice.
   it("should take the first supported tag, not the highest weighted one", () => {
     expect(target("en;q=0.1,es;q=0.9").pathname).toBe("/en");
   });

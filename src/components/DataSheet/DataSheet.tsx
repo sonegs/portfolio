@@ -1,5 +1,3 @@
-// The block of specifications in the header: a term on the left, its value right
-// aligned, one hairline per row.
 function DataSheet({ children, className }: { children: React.ReactNode; className?: string }) {
   return <dl className={className}>{children}</dl>;
 }

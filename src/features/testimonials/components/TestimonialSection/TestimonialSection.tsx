@@ -4,9 +4,6 @@ import { profile, testimonials } from "@/content";
 import { getT, type Language } from "@/i18n";
 import TestimonialCard from "./TestimonialCard";
 
-// Scroll snapping does the carousel: one card today, a swipeable rail the moment there
-// is a second, with no JavaScript either way. The rail takes focus so it can also be
-// walked with the keyboard.
 function TestimonialSection({ lang }: { lang: Language }) {
   const t = getT(lang);
 

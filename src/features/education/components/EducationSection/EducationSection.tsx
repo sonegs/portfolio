@@ -4,8 +4,6 @@ import { education } from "@/content";
 import { getT, type Language } from "@/i18n";
 import EducationEntry from "./EducationEntry";
 
-// Nothing to show until there are entries, so the band decides for itself whether it
-// exists rather than making the page ask.
 function EducationSection({ lang }: { lang: Language }) {
   const t = getT(lang);
 

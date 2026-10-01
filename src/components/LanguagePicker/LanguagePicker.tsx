@@ -1,10 +1,5 @@
 import { languages, type Language } from "@/i18n";
 
-// A plain anchor, not next/link, on purpose. The root layout lives under [lang], so a
-// soft navigation would re-render it on the client: React then meets the <script> that
-// next-themes renders to apply the theme before paint and warns about it, and the lang
-// attribute on <html> is left stale. Changing language changes the document, so it is
-// a document navigation.
 function LanguageLink({ language, current }: { language: Language; current: Language }) {
   const isCurrent = language === current;
   const href = `/${language}`;

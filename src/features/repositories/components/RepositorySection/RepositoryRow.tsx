@@ -1,8 +1,6 @@
 import { profile, type repositories } from "@/content";
 import { getT, type Language } from "@/i18n";
 
-// The whole row is the link, so the pointer target matches what the eye reads as one
-// thing. `.entry` is what inks the rule underneath and steps the arrow out.
 function RepositoryRow({ repository, lang }: { repository: (typeof repositories)[number]; lang: Language }) {
   const t = getT(lang);
   const url = `${profile.github}/${repository.name}`;

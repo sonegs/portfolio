@@ -1,9 +1,6 @@
 import { readFileSync } from "node:fs";
 import { palette } from "@/theme";
 
-// The stylesheet is the palette the page renders with; palette.ts is the copy the
-// metadata and the social card render with. This reads the first and compares, so the
-// two cannot drift without a test going red.
 const css = readFileSync("src/app/theme.css", "utf8");
 
 function tokensOf(selector: string) {

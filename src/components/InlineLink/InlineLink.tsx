@@ -1,4 +1,3 @@
-// A link inside running text: underlined in the rule colour, dyed on hover.
 function InlineLink({ href, children, ...rest }: Omit<React.ComponentProps<"a">, "className">) {
   return (
     <a

@@ -5,8 +5,6 @@ import userEvent from "@testing-library/user-event";
 const setTheme = jest.fn();
 let resolvedTheme: string | undefined = "light";
 
-// Only the hook is faked. The provider needs window.matchMedia, which jsdom does not
-// implement, and it would add nothing here: the toggle's whole behaviour is this hook.
 jest.mock("next-themes", () => ({ useTheme: () => ({ resolvedTheme, setTheme }) }));
 
 describe("ThemeToggle", () => {

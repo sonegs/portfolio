@@ -4,8 +4,6 @@ import { career } from "@/content";
 import { getT, type Language } from "@/i18n";
 import CareerEntry from "./CareerEntry";
 
-// A timeline on a rail rather than one more ruled table. The feature owns its data, so
-// the page only decides where the band sits.
 function CareerSection({ lang }: { lang: Language }) {
   const t = getT(lang);
 

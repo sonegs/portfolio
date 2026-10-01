@@ -8,7 +8,6 @@
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
-  /* Tabular figures: the year and percentage columns have to line up. */
   font-variant-numeric: tabular-nums;
   touch-action: manipulation;
 }
@@ -23,8 +22,6 @@ body {
   outline-offset: 3px;
 }
 
-/* Width is a variable axis of Archivo (62-125): the display runs condensed and
-   running text at normal width. One family, two roles. */
 .display {
   font-stretch: 66%;
   font-weight: 680;
@@ -41,7 +38,6 @@ body {
   text-transform: uppercase;
 }
 
-/* A single moment on load: the sheet is ruled and the display settles. */
 @keyframes rule-in {
   from {
     transform: scaleX(0);
@@ -71,10 +67,6 @@ body {
   animation: settle 600ms var(--ease-out) both;
 }
 
-/* A photograph on a sheet that only owns three colours. Greyscale first, then a breath
-   of dye through a colour blend, so the portrait belongs to the palette instead of
-   sitting on top of it. Dark takes it down a stop: a full-brightness photograph glares
-   against near-black. */
 .portrait {
   position: relative;
   isolation: isolate;
@@ -100,8 +92,6 @@ body {
   filter: grayscale(1) contrast(1.02) brightness(0.88);
 }
 
-/* Career is a timeline on a rail, so it does not read as one more ruled table. The
-   node is the one place the sheet goes round: a square reads as a cell, not a point. */
 .timeline {
   position: relative;
   padding-left: 1.6rem;
@@ -138,8 +128,6 @@ body {
   outline-color: var(--color-dye);
 }
 
-/* A repository row answers the pointer: the rule underneath it inks over in dye
-   and the arrow steps out. Both are transform/opacity only. */
 .entry::after {
   content: "";
   position: absolute;
@@ -172,8 +160,6 @@ body {
   transform: none;
 }
 
-/* One card sits still, several become a swipeable rail. Snapping and the gutter
-   are the whole carousel: no library, no state, no buttons to keep in sync. */
 .rail {
   display: grid;
   grid-auto-flow: column;

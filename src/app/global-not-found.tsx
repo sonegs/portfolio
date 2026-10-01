@@ -6,8 +6,6 @@ import { palette } from "@/theme";
 
 const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: ["wdth"] });
 
-// The layout never runs here, so the theme colour it declares has to be declared again
-// or the browser chrome stays light while the page is dark.
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: palette.light.paper },
@@ -20,9 +18,6 @@ export function generateMetadata(): Metadata {
   return { title: t("NOT_FOUND_TITLE"), description: t("NOT_FOUND_LEAD") };
 }
 
-// This file is served instead of rendering, so the layout never runs: it brings its
-// own document, styles and font. There is no language in the URL either, so the sheet
-// falls back to the default one, and the theme to whatever the system asks for.
 export default function GlobalNotFound() {
   const t = getT(defaultLanguage);
   const home = `/${defaultLanguage}`;
