@@ -23,6 +23,11 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
+      # PageProps, LayoutProps and the image module declarations are generated, and both
+      # .next/ and next-env.d.ts are ignored, so a fresh checkout has neither. Without
+      # this, lint and typecheck see them as error types and fail on CI only.
+      - run: pnpm run typegen
+
       - run: pnpm run format:check
       - run: pnpm run lint
       - run: pnpm run check:locales

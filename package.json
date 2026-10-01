@@ -5,6 +5,7 @@
     "dev": "next dev",
     "build": "next build && pnpm run typecheck",
     "start": "next start",
+    "typegen": "next typegen",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --max-warnings=0",
     "lint:fix": "eslint --fix",
