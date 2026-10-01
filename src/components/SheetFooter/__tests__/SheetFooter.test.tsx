@@ -1,5 +1,5 @@
+import { SheetFooter } from "@/components/SheetFooter";
 import { render, screen } from "@testing-library/react";
-import { SheetFooter } from "@/components/footer";
 import { profile } from "@/content";
 import { getT } from "@/i18n";
 

@@ -1,8 +1,8 @@
+import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
-import { ThemeProvider } from "@/components/theme";
 import { profile } from "@/content";
 import { getT, isLanguage, languages } from "@/i18n";
 import { siteUrl } from "@/site";

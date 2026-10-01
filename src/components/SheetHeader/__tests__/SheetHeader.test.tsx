@@ -1,5 +1,5 @@
+import { SheetHeader } from "@/components/SheetHeader";
 import { render, screen } from "@testing-library/react";
-import { SheetHeader } from "@/components/header";
 import { careerStart, profile } from "@/content";
 import { getT } from "@/i18n";
 

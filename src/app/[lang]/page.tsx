@@ -1,13 +1,14 @@
+import { Portrait } from "@/components/Portrait";
+import { Rule } from "@/components/Rule";
+import { Section, SectionHeader, SectionLink, SectionTitle } from "@/components/Section";
+import { SheetFooter } from "@/components/SheetFooter";
+import { SheetHeader } from "@/components/SheetHeader";
 import { notFound } from "next/navigation";
 import { CareList } from "@/components/care";
 import { CareerTimeline } from "@/components/career";
 import { CompositionList } from "@/components/composition";
 import { EducationList } from "@/components/education";
-import { Portrait } from "@/components/portrait";
 import { RepositoryList } from "@/components/repositories";
-import { Section } from "@/components/common";
-import { SheetFooter } from "@/components/footer";
-import { SheetHeader } from "@/components/header";
 import { TestimonialRail } from "@/components/testimonials";
 import { career, careInstructions, composition, education, profile, repositories, testimonials } from "@/content";
 import { getT, isLanguage } from "@/i18n";
@@ -35,10 +36,10 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
       </Section>
 
       <Section>
-        <Section.Header>
-          <Section.Title>{t("CAREER")}</Section.Title>
-        </Section.Header>
-        <Section.Rule delay={80} />
+        <SectionHeader>
+          <SectionTitle>{t("CAREER")}</SectionTitle>
+        </SectionHeader>
+        <Rule delay={80} />
         <CareerTimeline>
           {career.map((stage) => (
             <CareerTimeline.Entry key={stage.key} stage={stage} lang={lang} />
@@ -48,10 +49,10 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
 
       {hasEducation && (
         <Section>
-          <Section.Header>
-            <Section.Title>{t("EDUCATION")}</Section.Title>
-          </Section.Header>
-          <Section.Rule delay={80} />
+          <SectionHeader>
+            <SectionTitle>{t("EDUCATION")}</SectionTitle>
+          </SectionHeader>
+          <Rule delay={80} />
           <EducationList>
             {education.map((entry) => (
               <EducationList.Entry key={entry.key} entry={entry} lang={lang} />
@@ -61,13 +62,13 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
       )}
 
       <Section>
-        <Section.Header>
-          <Section.Title>{t("PUBLIC_CODE")}</Section.Title>
-          <Section.Link href={profile.github} translate="no">
+        <SectionHeader>
+          <SectionTitle>{t("PUBLIC_CODE")}</SectionTitle>
+          <SectionLink href={profile.github} translate="no">
             github.com/sonegs
-          </Section.Link>
-        </Section.Header>
-        <Section.Rule delay={80} />
+          </SectionLink>
+        </SectionHeader>
+        <Rule delay={80} />
         <RepositoryList>
           {repositories.map((repository) => (
             <RepositoryList.Item key={repository.key} repository={repository} lang={lang} />
@@ -77,11 +78,11 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
 
       {hasTestimonials && (
         <Section>
-          <Section.Header>
-            <Section.Title>{t("TESTIMONIALS")}</Section.Title>
-            <Section.Link href={profile.linkedin}>{t("TESTIMONIALS_SOURCE")}</Section.Link>
-          </Section.Header>
-          <Section.Rule delay={80} />
+          <SectionHeader>
+            <SectionTitle>{t("TESTIMONIALS")}</SectionTitle>
+            <SectionLink href={profile.linkedin}>{t("TESTIMONIALS_SOURCE")}</SectionLink>
+          </SectionHeader>
+          <Rule delay={80} />
           <TestimonialRail lang={lang}>
             {testimonials.map((testimonial) => (
               <TestimonialRail.Card key={testimonial.key} testimonial={testimonial} lang={lang} />
@@ -92,10 +93,10 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
 
       <Section className="grid grid-cols-12 gap-x-8 gap-y-14 pt-20 md:pt-28">
         <div className="col-span-12 md:col-span-6">
-          <Section.Header>
-            <Section.Title>{t("COMPOSITION")}</Section.Title>
-          </Section.Header>
-          <Section.Rule delay={80} />
+          <SectionHeader>
+            <SectionTitle>{t("COMPOSITION")}</SectionTitle>
+          </SectionHeader>
+          <Rule delay={80} />
           <CompositionList>
             {composition.map((item) => (
               <CompositionList.Material key={item.material} item={item} lang={lang} />
@@ -104,10 +105,10 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </div>
 
         <div className="col-span-12 md:col-span-5 md:col-start-8">
-          <Section.Header>
-            <Section.Title>{t("CARE_INSTRUCTIONS")}</Section.Title>
-          </Section.Header>
-          <Section.Rule delay={80} />
+          <SectionHeader>
+            <SectionTitle>{t("CARE_INSTRUCTIONS")}</SectionTitle>
+          </SectionHeader>
+          <Rule delay={80} />
           <CareList>
             {careInstructions.map((instruction) => (
               <CareList.Instruction key={instruction}>{t(instruction)}</CareList.Instruction>

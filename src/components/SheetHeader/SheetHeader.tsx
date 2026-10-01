@@ -1,8 +1,8 @@
-import { DataSheet } from "@/components/common";
-import { InlineLink } from "@/components/common";
-import LanguagePicker from "./LanguagePicker";
-import { Rule } from "@/components/common";
-import { ThemeToggle } from "@/components/theme";
+import { DataSheet } from "@/components/DataSheet";
+import { InlineLink } from "@/components/InlineLink";
+import { LanguagePicker } from "@/components/LanguagePicker";
+import { Rule } from "@/components/Rule";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { careerStart, profile } from "@/content";
 import { getT, type Language } from "@/i18n";
 

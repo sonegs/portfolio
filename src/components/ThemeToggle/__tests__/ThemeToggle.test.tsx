@@ -1,6 +1,6 @@
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { ThemeToggle } from "@/components/theme";
 
 const setTheme = jest.fn();
 let resolvedTheme: string | undefined = "light";

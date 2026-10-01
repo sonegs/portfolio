@@ -1,5 +1,5 @@
+import { LanguagePicker } from "@/components/LanguagePicker";
 import { render, screen } from "@testing-library/react";
-import { LanguagePicker } from "@/components/header";
 import { languages } from "@/i18n";
 
 describe("LanguagePicker", () => {

@@ -1,5 +1,5 @@
+import { Portrait } from "@/components/Portrait";
 import { render, screen } from "@testing-library/react";
-import { Portrait } from "@/components/portrait";
 import { profile } from "@/content";
 
 describe("Portrait", () => {

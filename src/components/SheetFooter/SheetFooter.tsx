@@ -1,5 +1,5 @@
-import { InlineLink } from "@/components/common";
-import { Rule } from "@/components/common";
+import { InlineLink } from "@/components/InlineLink";
+import { Rule } from "@/components/Rule";
 import { profile } from "@/content";
 import { getT, type Language } from "@/i18n";
 
