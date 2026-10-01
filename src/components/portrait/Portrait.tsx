@@ -3,8 +3,8 @@ import portrait from "@/assets/portrait.jpg";
 import { profile } from "@/content";
 import type { Translate } from "@/i18n";
 
-// Square and square-cornered like the rest of the sheet, sized by the grid column it
-// sits in. It is the LCP element, so it is preloaded rather than lazily fetched.
+// Square, clipped to the same hair of radius as every other box, and sized by the grid
+// column it sits in. It is the LCP element, so it is preloaded rather than lazily fetched.
 // `.portrait` carries the greyscale and the dye blend that put it in the palette.
 function Portrait({ t }: { t: Translate }) {
   const alt = t("PORTRAIT_ALT", { name: profile.name });
