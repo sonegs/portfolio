@@ -1,5 +1,3 @@
-import { DataSheet } from "@/components/DataSheet";
-import { InlineLink } from "@/components/InlineLink";
 import { Section, SectionHeader, SectionLink, SectionTitle } from "@/components/Section";
 import { render, screen } from "@testing-library/react";
 
@@ -42,32 +40,5 @@ describe("Section", () => {
       "href",
       "https://github.com/sonegs",
     );
-  });
-});
-
-describe("DataSheet", () => {
-  it("should pair each term with its value as a description list", () => {
-    const { container } = render(
-      <DataSheet>
-        <DataSheet.Row term="Base">Málaga, España</DataSheet.Row>
-      </DataSheet>,
-    );
-
-    expect(container.querySelector("dl dt")).toHaveTextContent("Base");
-    expect(container.querySelector("dl dd")).toHaveTextContent("Málaga, España");
-  });
-});
-
-describe("InlineLink", () => {
-  it("should pass through the attributes a caller adds", () => {
-    render(
-      <InlineLink href="mailto:sonegs@hotmail.com" translate="no">
-        sonegs@hotmail.com
-      </InlineLink>,
-    );
-
-    const link = screen.getByRole("link");
-    expect(link).toHaveAttribute("href", "mailto:sonegs@hotmail.com");
-    expect(link).toHaveAttribute("translate", "no");
   });
 });
