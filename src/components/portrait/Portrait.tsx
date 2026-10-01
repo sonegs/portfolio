@@ -1,12 +1,13 @@
 import Image from "next/image";
 import portrait from "@/assets/portrait.jpg";
 import { profile } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
 // Square, clipped to the same hair of radius as every other box, and sized by the grid
 // column it sits in. It is the LCP element, so it is preloaded rather than lazily fetched.
 // `.portrait` carries the greyscale and the dye blend that put it in the palette.
-function Portrait({ t }: { t: Translate }) {
+function Portrait({ lang }: { lang: Language }) {
+  const t = getT(lang);
   const alt = t("PORTRAIT_ALT", { name: profile.name });
   const sizes = "(min-width: 768px) 22vw, 45vw";
 

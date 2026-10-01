@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   if (!isLanguage(lang)) {
     notFound();
   }
-  const t = await getT(lang);
+  const t = getT(lang);
 
   const title = `${profile.name} — ${t("ROLE")}`;
 

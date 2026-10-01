@@ -21,7 +21,7 @@ export default async function OpenGraphImage({ params }: { params: Promise<{ lan
     notFound();
   }
 
-  const t = await getT(lang);
+  const t = getT(lang);
   const archivo = await readFile(join(process.cwd(), "assets/archivo-condensed-700.ttf"));
 
   return new ImageResponse(

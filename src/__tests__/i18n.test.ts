@@ -15,24 +15,24 @@ describe("isLanguage", () => {
 });
 
 describe("getT", () => {
-  it("resolves a key in the language it was asked for", async () => {
-    const es = await getT("es");
-    const en = await getT("en");
+  it("resolves a key in the language it was asked for", () => {
+    const es = getT("es");
+    const en = getT("en");
 
     expect(es("CAREER")).toBe("Trayectoria");
     expect(en("CAREER")).toBe("Career");
   });
 
-  it("interpolates without escaping: React already escapes, doing it twice mangles the text", async () => {
-    const t = await getT("es");
+  it("interpolates without escaping: React already escapes, doing it twice mangles the text", () => {
+    const t = getT("es");
 
     // & and ' are the characters i18next's escaper does touch, so this fails if
     // escapeValue is ever turned back on.
     expect(t("COPYRIGHT", { year: 2026, name: "O'Brien & Co" })).toContain("O'Brien & Co");
   });
 
-  it("hands back a key it does not know, which is how a missing translation shows up on the page", async () => {
-    const t = await getT("es");
+  it("hands back a key it does not know, which is how a missing translation shows up on the page", () => {
+    const t = getT("es");
 
     expect(t("A_KEY_THAT_DOES_NOT_EXIST")).toBe("A_KEY_THAT_DOES_NOT_EXIST");
   });

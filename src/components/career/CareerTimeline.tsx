@@ -1,11 +1,12 @@
 import type { career } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
 function CareerTimeline({ children }: { children: React.ReactNode }) {
   return <ol className="timeline pt-8">{children}</ol>;
 }
 
-function Entry({ stage, t }: { stage: (typeof career)[number]; t: Translate }) {
+function Entry({ stage, lang }: { stage: (typeof career)[number]; lang: Language }) {
+  const t = getT(lang);
   const isCurrent = stage.to === null;
   const period = `${stage.from} — ${stage.to ?? t("TODAY")}`;
   const role = t(`CAREER_${stage.key}_ROLE`);

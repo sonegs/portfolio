@@ -14,16 +14,16 @@ export const viewport: Viewport = {
   ],
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getT(defaultLanguage);
+export function generateMetadata(): Metadata {
+  const t = getT(defaultLanguage);
   return { title: t("NOT_FOUND_TITLE"), description: t("NOT_FOUND_LEAD") };
 }
 
 // This file is served instead of rendering, so the layout never runs: it brings its
 // own document, styles and font. There is no language in the URL either, so the sheet
 // falls back to the default one, and the theme to whatever the system asks for.
-export default async function GlobalNotFound() {
-  const t = await getT(defaultLanguage);
+export default function GlobalNotFound() {
+  const t = getT(defaultLanguage);
   const home = `/${defaultLanguage}`;
   const label = t("NOT_FOUND_LABEL");
   const lead = t("NOT_FOUND_LEAD");

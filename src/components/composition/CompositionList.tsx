@@ -1,11 +1,12 @@
 import type { composition } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
 function CompositionList({ children }: { children: React.ReactNode }) {
   return <ul>{children}</ul>;
 }
 
-function Material({ item, t }: { item: (typeof composition)[number]; t: Translate }) {
+function Material({ item, lang }: { item: (typeof composition)[number]; lang: Language }) {
+  const t = getT(lang);
   const name = t(item.material);
   const share = `${item.percentage}%`;
   const bar = { width: share };

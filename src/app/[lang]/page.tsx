@@ -17,17 +17,17 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
   if (!isLanguage(lang)) {
     notFound();
   }
-  const t = await getT(lang);
+  const t = getT(lang);
   const hasEducation = education.length > 0;
   const hasTestimonials = testimonials.length > 0;
 
   return (
     <main className="mx-auto max-w-[78rem] overflow-x-clip px-5 pb-28 md:px-10">
-      <SheetHeader t={t} lang={lang} />
+      <SheetHeader lang={lang} />
 
       <Section className="grid grid-cols-12 items-start gap-x-8 gap-y-8 pt-16 md:pt-24">
         <div className="col-span-12 md:col-span-3 md:pt-[0.7rem]">
-          <Portrait t={t} />
+          <Portrait lang={lang} />
         </div>
         <p className="col-span-12 min-w-0 max-w-[62ch] text-pretty text-lg leading-[1.55] md:col-span-9 md:text-[1.35rem]">
           {t("SUMMARY")}
@@ -41,7 +41,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         <Section.Rule delay={80} />
         <CareerTimeline>
           {career.map((stage) => (
-            <CareerTimeline.Entry key={stage.key} stage={stage} t={t} />
+            <CareerTimeline.Entry key={stage.key} stage={stage} lang={lang} />
           ))}
         </CareerTimeline>
       </Section>
@@ -54,7 +54,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           <Section.Rule delay={80} />
           <EducationList>
             {education.map((entry) => (
-              <EducationList.Entry key={entry.key} entry={entry} t={t} />
+              <EducationList.Entry key={entry.key} entry={entry} lang={lang} />
             ))}
           </EducationList>
         </Section>
@@ -70,7 +70,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         <Section.Rule delay={80} />
         <RepositoryList>
           {repositories.map((repository) => (
-            <RepositoryList.Item key={repository.key} repository={repository} t={t} />
+            <RepositoryList.Item key={repository.key} repository={repository} lang={lang} />
           ))}
         </RepositoryList>
       </Section>
@@ -82,9 +82,9 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
             <Section.Link href={profile.linkedin}>{t("TESTIMONIALS_SOURCE")}</Section.Link>
           </Section.Header>
           <Section.Rule delay={80} />
-          <TestimonialRail label={t("TESTIMONIALS")}>
+          <TestimonialRail lang={lang}>
             {testimonials.map((testimonial) => (
-              <TestimonialRail.Card key={testimonial.key} testimonial={testimonial} t={t} />
+              <TestimonialRail.Card key={testimonial.key} testimonial={testimonial} lang={lang} />
             ))}
           </TestimonialRail>
         </Section>
@@ -98,7 +98,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           <Section.Rule delay={80} />
           <CompositionList>
             {composition.map((item) => (
-              <CompositionList.Material key={item.material} item={item} t={t} />
+              <CompositionList.Material key={item.material} item={item} lang={lang} />
             ))}
           </CompositionList>
         </div>
@@ -116,7 +116,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </div>
       </Section>
 
-      <SheetFooter t={t} />
+      <SheetFooter lang={lang} />
     </main>
   );
 }

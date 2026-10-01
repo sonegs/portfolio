@@ -4,9 +4,10 @@ import LanguagePicker from "./LanguagePicker";
 import { Rule } from "@/components/common";
 import { ThemeToggle } from "@/components/theme";
 import { careerStart, profile } from "@/content";
-import type { Language, Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
-function SheetHeader({ t, lang }: { t: Translate; lang: Language }) {
+function SheetHeader({ lang }: { lang: Language }) {
+  const t = getT(lang);
   const years = new Date().getFullYear() - careerStart;
   const experience = t("EXPERIENCE_VALUE", { years });
   const mailto = `mailto:${profile.email}`;

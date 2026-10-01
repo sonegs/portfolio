@@ -1,4 +1,4 @@
-import { createInstance } from "i18next";
+import { createInstance, type TFunction } from "i18next";
 import en from "../public/locales/en/common.json";
 import es from "../public/locales/es/common.json";
 
@@ -10,12 +10,22 @@ export function isLanguage(value: string): value is Language {
   return (languages as readonly string[]).includes(value);
 }
 
-export type Translate = Awaited<ReturnType<typeof getT>>;
+export type Translate = TFunction;
 
-// One instance per render: there is no language state to share between requests.
-export async function getT(language: Language) {
+const instances = new Map<Language, Translate>();
+
+// Synchronous on purpose. i18next only awaits when it has to fetch resources, and ours
+// are imported, so init has already finished by the time it returns a promise. Keeping
+// it sync is what lets a component resolve its own copy without becoming async, which
+// Jest cannot render. One instance per language, reused: there is no per-request state.
+export function getT(language: Language): Translate {
+  const cached = instances.get(language);
+  if (cached) {
+    return cached;
+  }
+
   const instance = createInstance();
-  await instance.init({
+  void instance.init({
     lng: language,
     fallbackLng: defaultLanguage,
     defaultNS: "common",
@@ -24,5 +34,8 @@ export async function getT(language: Language) {
     keySeparator: false,
     interpolation: { escapeValue: false },
   });
-  return instance.getFixedT(language);
+
+  const t = instance.getFixedT(language);
+  instances.set(language, t);
+  return t;
 }

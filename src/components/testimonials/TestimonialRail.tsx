@@ -1,11 +1,13 @@
 import { Separator } from "@/components/ui/separator";
 import type { testimonials } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
 // Scroll snapping does the carousel: one card today, a swipeable rail the moment there
 // is a second, with no JavaScript either way. The container takes focus so it can also
 // be walked with the keyboard.
-function TestimonialRail({ label, children }: { label: string; children: React.ReactNode }) {
+function TestimonialRail({ lang, children }: { lang: Language; children: React.ReactNode }) {
+  const label = getT(lang)("TESTIMONIALS");
+
   return (
     <div className="rail pt-8" tabIndex={0} role="group" aria-label={label}>
       {children}
@@ -13,7 +15,8 @@ function TestimonialRail({ label, children }: { label: string; children: React.R
   );
 }
 
-function Card({ testimonial, t }: { testimonial: (typeof testimonials)[number]; t: Translate }) {
+function Card({ testimonial, lang }: { testimonial: (typeof testimonials)[number]; lang: Language }) {
+  const t = getT(lang);
   const paragraphs = t(`TESTIMONIAL_${testimonial.key}_TEXT`).split("\n\n");
   const relation = t(`TESTIMONIAL_${testimonial.key}_RELATION`);
 

@@ -1,11 +1,12 @@
 import type { education } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
 function EducationList({ children }: { children: React.ReactNode }) {
   return <ul className="grid grid-cols-12 gap-x-8 gap-y-8 pt-8">{children}</ul>;
 }
 
-function Entry({ entry, t }: { entry: (typeof education)[number]; t: Translate }) {
+function Entry({ entry, lang }: { entry: (typeof education)[number]; lang: Language }) {
+  const t = getT(lang);
   const period = `${entry.from} — ${entry.to}`;
   const title = t(`EDUCATION_${entry.key}_TITLE`);
 

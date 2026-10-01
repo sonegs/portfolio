@@ -1,9 +1,10 @@
 import { InlineLink } from "@/components/common";
 import { Rule } from "@/components/common";
 import { profile } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
-function SheetFooter({ t }: { t: Translate }) {
+function SheetFooter({ lang }: { lang: Language }) {
+  const t = getT(lang);
   const year = new Date().getFullYear();
   const copyright = t("COPYRIGHT", { year, name: profile.name });
   const links = [

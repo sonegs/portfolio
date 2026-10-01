@@ -1,5 +1,5 @@
 import { profile, type repositories } from "@/content";
-import type { Translate } from "@/i18n";
+import { getT, type Language } from "@/i18n";
 
 function RepositoryList({ children }: { children: React.ReactNode }) {
   return <ul>{children}</ul>;
@@ -7,7 +7,8 @@ function RepositoryList({ children }: { children: React.ReactNode }) {
 
 // The whole row is the link, so the pointer target matches what the eye reads as one
 // thing. `.entry` is what inks the rule underneath and steps the arrow out.
-function Item({ repository, t }: { repository: (typeof repositories)[number]; t: Translate }) {
+function Item({ repository, lang }: { repository: (typeof repositories)[number]; lang: Language }) {
+  const t = getT(lang);
   const url = `${profile.github}/${repository.name}`;
   const description = t(`REPO_${repository.key}_DESCRIPTION`);
 
