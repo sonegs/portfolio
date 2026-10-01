@@ -1,11 +1,11 @@
 import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
-import { notFound } from "next/navigation";
 import "../globals.css";
 import { profile } from "@/content";
 import { palette } from "@/theme";
-import { getT, isLanguage, languages } from "@/i18n";
+import { toLanguage } from "@/lib/language";
+import { getT, languages } from "@/i18n";
 import { siteUrl } from "@/site";
 
 const archivo = Archivo({
@@ -28,10 +28,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Promise<Metadata> {
-  const { lang } = await params;
-  if (!isLanguage(lang)) {
-    notFound();
-  }
+  const lang = toLanguage((await params).lang);
   const t = getT(lang);
 
   const title = `${profile.name} — ${t("ROLE")}`;
@@ -50,10 +47,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
 }
 
 export default async function RootLayout({ children, params }: LayoutProps<"/[lang]">) {
-  const { lang } = await params;
-  if (!isLanguage(lang)) {
-    notFound();
-  }
+  const lang = toLanguage((await params).lang);
 
   return (
     <html lang={lang} className={`${archivo.variable} antialiased`} suppressHydrationWarning>

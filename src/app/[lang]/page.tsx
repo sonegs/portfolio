@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import { Portrait } from "@/components/Portrait";
 import { Section } from "@/components/Section";
 import { SheetFooter } from "@/components/SheetFooter";
@@ -9,13 +8,11 @@ import { CompositionPanel } from "@/features/composition/components/CompositionP
 import { EducationSection } from "@/features/education/components/EducationSection";
 import { RepositorySection } from "@/features/repositories/components/RepositorySection";
 import { TestimonialSection } from "@/features/testimonials/components/TestimonialSection";
-import { getT, isLanguage } from "@/i18n";
+import { toLanguage } from "@/lib/language";
+import { getT } from "@/i18n";
 
 export default async function Page({ params }: PageProps<"/[lang]">) {
-  const { lang } = await params;
-  if (!isLanguage(lang)) {
-    notFound();
-  }
+  const lang = toLanguage((await params).lang);
   const t = getT(lang);
 
   return (

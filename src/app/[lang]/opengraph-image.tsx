@@ -1,9 +1,9 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
-import { notFound } from "next/navigation";
 import { profile } from "@/content";
-import { getT, isLanguage, languages } from "@/i18n";
+import { toLanguage } from "@/lib/language";
+import { getT, languages } from "@/i18n";
 import { body, email, footer, header, revision, role, rule, sheet } from "./opengraph-image.styles";
 
 export const size = { width: 1200, height: 630 };
@@ -15,10 +15,7 @@ export function generateStaticParams() {
 }
 
 export default async function OpenGraphImage({ params }: { params: Promise<{ lang: string }> }) {
-  const { lang } = await params;
-  if (!isLanguage(lang)) {
-    notFound();
-  }
+  const lang = toLanguage((await params).lang);
 
   const t = getT(lang);
   const archivo = await readFile(join(process.cwd(), "assets/archivo-condensed-700.ttf"));
