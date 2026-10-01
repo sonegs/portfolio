@@ -11,7 +11,7 @@ export const profile = {
 };
 
 // First year of professional work: the header renders it as a count of years.
-export const careerStart = 2016;
+export const careerStart = 2020;
 
 export const repositories = [
   { key: "SHOPPING_LIST", name: "shopping-list", stack: "Next.js · TypeScript", year: "2026" },
@@ -25,14 +25,19 @@ export const repositories = [
 export const testimonials = [{ key: "JESUS_CORTES", name: "Jesus Cortes Cruz", role: "Senior Frontend Engineer" }];
 
 export const career = [
-  { key: "SENIOR", from: "2023", to: null },
-  { key: "MAYORAL", from: "2019", to: "2023" },
-  { key: "AGENCY", from: "2016", to: "2019" },
+  { key: "MAYORAL", from: "2022", to: null },
+  { key: "PYMES", from: "2020", to: "2022" },
 ];
 
 // Education. The school is a proper noun; the qualification is copy, so its name
 // lives in the locales next to everything else that gets translated.
-export const education: { key: string; school: string; from: string; to: string }[] = [];
+export const education = [
+  { key: "MASTER_FRONTEND", school: "Lemoncoders", from: "2021", to: "2022" },
+  { key: "JS_BOOTCAMP", school: "Lemoncoders", from: "2020", to: "2020" },
+  { key: "DAW", school: "ILERNA FP Online", from: "2018", to: "2020" },
+  { key: "TESTING", school: "Tatianna Nieves Course", from: "2019", to: "2019" },
+  { key: "SMR", school: "IES Virgen del Carmen", from: "2008", to: "2010" },
+];
 
 export const composition = [
   { material: "React / Next.js", percentage: 45 },

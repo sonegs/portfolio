@@ -3,7 +3,8 @@ import { getT, type Language } from "@/i18n";
 
 function EducationEntry({ entry, lang }: { entry: (typeof education)[number]; lang: Language }) {
   const t = getT(lang);
-  const period = `${entry.from} — ${entry.to}`;
+  // A course that starts and ends the same year is one year, not a range.
+  const period = entry.from === entry.to ? entry.from : `${entry.from} — ${entry.to}`;
   const title = t(`EDUCATION_${entry.key}_TITLE`);
 
   return (
