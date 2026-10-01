@@ -10,7 +10,7 @@ export function isLanguage(value: string): value is Language {
   return (languages as readonly string[]).includes(value);
 }
 
-export type Translate = TFunction;
+export type Translate = TFunction<"common">;
 
 const instances = new Map<Language, Translate>();
 
@@ -34,6 +34,10 @@ export function getT(language: Language): Translate {
     keySeparator: false,
     interpolation: { escapeValue: false },
   });
+
+  if (!instance.isInitialized) {
+    throw new Error("i18n: init did not settle synchronously, so the locales are no longer bundled");
+  }
 
   const t = instance.getFixedT(language);
   instances.set(language, t);
