@@ -22,10 +22,11 @@ describe("CompositionPanel", () => {
     expect(screen.getByText(`${composition[0].percentage}%`)).toBeInTheDocument();
   });
 
-  it("should resolve a material written as a key and leave a plain name alone", () => {
+  it("should resolve every material, whether it is a plain name or a translation key", () => {
     render(<CompositionPanel lang="es" />);
 
-    expect(screen.getByText(t("COMPOSITION_OTHER"))).toBeInTheDocument();
-    expect(screen.getByText("Node")).toBeInTheDocument();
+    for (const item of composition) {
+      expect(screen.getByText(t(item.material))).toBeInTheDocument();
+    }
   });
 });

@@ -36,12 +36,10 @@ export const education = [
 ];
 
 export const composition = [
-  { material: "React / Next.js", percentage: 45 },
+  { material: "React / Next.js", percentage: 60 },
   { material: "TypeScript", percentage: 25 },
   { material: "PHP / MySQL", percentage: 10 },
   { material: "Angular", percentage: 5 },
-  { material: "Node", percentage: 10 },
-  { material: "COMPOSITION_OTHER", percentage: 5 },
 ];
 
 export const careInstructions = ["CARE_ACCESSIBILITY", "CARE_DEPENDENCIES", "CARE_REVIEW", "CARE_MOTION"];
