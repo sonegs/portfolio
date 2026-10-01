@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { LanguagePicker } from "@/components/LanguagePicker";
 import { render, screen } from "@testing-library/react";
 import { languages } from "@/i18n";
@@ -23,5 +24,13 @@ describe("LanguagePicker", () => {
 
     expect(screen.getByRole("link", { name: "EN" })).toHaveAttribute("href", "/en");
     expect(screen.getByRole("link", { name: "EN" })).toHaveAttribute("hreflang", "en");
+  });
+});
+
+describe("the language links", () => {
+  it("should navigate the document rather than soft navigate, so <html lang> is not left stale", () => {
+    const source = readFileSync("src/components/LanguagePicker/LanguagePicker.tsx", "utf8");
+
+    expect(source).not.toMatch(/from "next\/link"/);
   });
 });

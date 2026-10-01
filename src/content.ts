@@ -30,8 +30,8 @@ export const career = [
 export const education = [
   { key: "MASTER_FRONTEND", school: "Lemoncoders", from: "2021", to: "2022" },
   { key: "JS_BOOTCAMP", school: "Lemoncoders", from: "2020", to: "2020" },
-  { key: "DAW", school: "ILERNA FP Online", from: "2018", to: "2020" },
   { key: "TESTING", school: "Tatianna Nieves Course", from: "2019", to: "2019" },
+  { key: "DAW", school: "ILERNA FP Online", from: "2018", to: "2020" },
   { key: "SMR", school: "IES Virgen del Carmen", from: "2008", to: "2010" },
 ];
 

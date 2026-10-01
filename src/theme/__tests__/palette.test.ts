@@ -1,4 +1,5 @@
 import { readFileSync } from "node:fs";
+import { viewport as notFoundViewport } from "@/app/global-not-found";
 import { palette } from "@/theme";
 
 const css = readFileSync("src/app/theme.css", "utf8");
@@ -47,5 +48,29 @@ describe("palette", () => {
       const registered = new RegExp(`@property --${token}\\s*\\{[^}]*initial-value:\\s*(#[0-9a-f]{6})`).exec(css);
       expect(registered?.[1]).toBe(palette.light[key as keyof typeof palette.light]);
     }
+  });
+});
+
+describe("the stylesheet cascade", () => {
+  const at = (selector: string) => css.search(new RegExp(selector));
+
+  it("should declare the dark palette after the light one, which is what makes it win", () => {
+    expect(at("\\.dark \\{")).toBeGreaterThan(at(":root \\{"));
+  });
+
+  it("should declare the system fallback after the dark palette", () => {
+    expect(at("\\.theme-auto \\{")).toBeGreaterThan(at("\\.dark \\{"));
+  });
+
+  it("should map the shadcn tokens last, so they beat the defaults shadcn ships", () => {
+    expect(css.lastIndexOf(":root,")).toBeGreaterThan(at("\\.theme-auto \\{"));
+  });
+});
+
+describe("the not found page", () => {
+  it("should declare the same theme colour as the layout, which never runs for it", () => {
+    const colours = notFoundViewport.themeColor as { media: string; color: string }[];
+
+    expect(colours.map((entry) => entry.color)).toEqual([palette.light.paper, palette.dark.paper]);
   });
 });

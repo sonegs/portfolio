@@ -19,6 +19,21 @@ describe("career", () => {
   });
 });
 
+describe("education", () => {
+  it("should run newest first, the same way the career does", () => {
+    const starts = education.map((entry) => Number(entry.from));
+    const descending = [...starts].sort((a, b) => b - a);
+
+    expect(starts).toEqual(descending);
+  });
+
+  it("should never end before it starts", () => {
+    for (const entry of education) {
+      expect(Number(entry.to)).toBeGreaterThanOrEqual(Number(entry.from));
+    }
+  });
+});
+
 describe("composition", () => {
   it("should add up to a whole, or the bars lie about a proportion", () => {
     const total = composition.reduce((sum, item) => sum + item.percentage, 0);

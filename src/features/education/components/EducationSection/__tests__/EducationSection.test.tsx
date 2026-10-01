@@ -18,8 +18,8 @@ describe("EducationSection", () => {
 
     for (const entry of education) {
       expect(screen.getByText(t(`EDUCATION_${entry.key}_TITLE`))).toBeInTheDocument();
+      expect(screen.getAllByText(entry.school).length).toBeGreaterThanOrEqual(1);
     }
-    expect(screen.getAllByText("Lemoncoders")).toHaveLength(2);
   });
 
   it("should write a single year as a year, not as a range of one", () => {
@@ -28,7 +28,7 @@ describe("EducationSection", () => {
 
     render(<EducationSection lang="es" />);
 
-    expect(screen.getAllByText(single!.from).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(single!.from)[0]).toBeInTheDocument();
     expect(screen.queryByText(`${single!.from} — ${single!.to}`)).not.toBeInTheDocument();
   });
 
