@@ -4,6 +4,7 @@ import { Archivo } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { profile } from "@/content";
+import { palette } from "@/theme";
 import { getT, isLanguage, languages } from "@/i18n";
 import { siteUrl } from "@/site";
 
@@ -15,8 +16,8 @@ const archivo = Archivo({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#e8e9e4" },
-    { media: "(prefers-color-scheme: dark)", color: "#15171a" },
+    { media: "(prefers-color-scheme: light)", color: palette.light.paper },
+    { media: "(prefers-color-scheme: dark)", color: palette.dark.paper },
   ],
 };
 

@@ -2,6 +2,7 @@ import { Archivo } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { defaultLanguage, getT } from "@/i18n";
+import { palette } from "@/theme";
 
 const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: ["wdth"] });
 
@@ -9,8 +10,8 @@ const archivo = Archivo({ variable: "--font-archivo", subsets: ["latin"], axes: 
 // or the browser chrome stays light while the page is dark.
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#e8e9e4" },
-    { media: "(prefers-color-scheme: dark)", color: "#15171a" },
+    { media: "(prefers-color-scheme: light)", color: palette.light.paper },
+    { media: "(prefers-color-scheme: dark)", color: palette.dark.paper },
   ],
 };
 
