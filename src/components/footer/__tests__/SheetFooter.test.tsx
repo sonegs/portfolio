@@ -10,16 +10,21 @@ beforeAll(async () => {
 });
 
 describe("SheetFooter", () => {
-  it("claims the current year, not a year frozen in the source", () => {
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it("claims whatever year it is run in, not a year frozen in the source", () => {
+    jest.useFakeTimers().setSystemTime(new Date("2031-04-02"));
     render(<SheetFooter t={t} />);
 
-    expect(screen.getByText(new RegExp(String(new Date().getFullYear())))).toBeInTheDocument();
+    expect(screen.getByText(/2031/)).toBeInTheDocument();
   });
 
   it("puts the name in the notice from the data, not from the copy", () => {
     render(<SheetFooter t={t} />);
 
-    expect(screen.getByText(new RegExp(profile.name))).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(profile.name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")))).toBeInTheDocument();
   });
 
   it("offers the three ways of reaching him, and the mail one as a mailto", () => {

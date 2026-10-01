@@ -1,0 +1,48 @@
+import { career, careerStart, composition, education, profile, repositories, testimonials } from "@/content";
+
+describe("career", () => {
+  it("runs newest first, which is the order the page trusts", () => {
+    const starts = career.map((stage) => Number(stage.from));
+    const descending = [...starts].sort((a, b) => b - a);
+
+    expect(starts).toEqual(descending);
+  });
+
+  it("leaves exactly one stage open, or the timeline lights up the wrong node", () => {
+    expect(career.filter((stage) => stage.to === null)).toHaveLength(1);
+  });
+
+  it("starts counting experience no later than the oldest stage", () => {
+    const oldest = Math.min(...career.map((stage) => Number(stage.from)));
+
+    expect(careerStart).toBeLessThanOrEqual(oldest);
+  });
+});
+
+describe("composition", () => {
+  it("adds up to a whole, or the bars lie about a proportion", () => {
+    const total = composition.reduce((sum, item) => sum + item.percentage, 0);
+
+    expect(total).toBe(100);
+  });
+});
+
+describe("keys", () => {
+  it("keeps every key unique, since each one builds a translation lookup", () => {
+    const keys = [
+      ...repositories.map((r) => r.key),
+      ...career.map((c) => c.key),
+      ...testimonials.map((t) => t.key),
+      ...education.map((e) => e.key),
+    ];
+
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+});
+
+describe("profile", () => {
+  it("links to real profiles, not to the root of the site", () => {
+    expect(profile.github).toMatch(/github\.com\/.+/);
+    expect(profile.linkedin).toMatch(/linkedin\.com\/in\/.+/);
+  });
+});

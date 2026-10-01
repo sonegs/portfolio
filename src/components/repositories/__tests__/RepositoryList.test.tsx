@@ -54,7 +54,6 @@ describe("RepositoryList.Item", () => {
       </RepositoryList>,
     );
 
-    expect(screen.getByRole("link").getAttribute("aria-hidden")).toBeNull();
-    expect(screen.getByText("↗")).toHaveAttribute("aria-hidden", "true");
+    expect(screen.getByRole("link")).toHaveAccessibleName(expect.not.stringContaining("↗"));
   });
 });

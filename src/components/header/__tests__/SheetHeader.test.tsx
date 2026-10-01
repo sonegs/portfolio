@@ -16,11 +16,12 @@ describe("SheetHeader", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(profile.name);
   });
 
-  it("counts the years of experience instead of hardcoding a number that rots", () => {
+  it("counts the years from the start of the career, so the figure cannot rot", () => {
+    jest.useFakeTimers().setSystemTime(new Date("2031-04-02"));
     render(<SheetHeader t={t} lang="es" />);
+    jest.useRealTimers();
 
-    const years = new Date().getFullYear() - careerStart;
-    expect(screen.getByText(t("EXPERIENCE_VALUE", { years }))).toBeInTheDocument();
+    expect(screen.getByText(t("EXPERIENCE_VALUE", { years: 2031 - careerStart }))).toBeInTheDocument();
   });
 
   it("writes the address as a mailto so a click opens the mail client", () => {

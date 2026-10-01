@@ -15,7 +15,7 @@ const messages = Object.fromEntries(
 );
 
 const sources = readdirSync("src", { recursive: true })
-  .filter((file) => /\.tsx?$/.test(file))
+  .filter((file) => /\.tsx?$/.test(file) && !/__tests__|\.test\./.test(file))
   .map((file) => readFileSync(join("src", file), "utf8"))
   .join("\n");
 

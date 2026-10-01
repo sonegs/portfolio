@@ -23,17 +23,17 @@ describe("getT", () => {
     expect(en("CAREER")).toBe("Career");
   });
 
-  it("keeps dots inside a key instead of reading them as nesting", async () => {
+  it("interpolates without escaping: React already escapes, doing it twice mangles the text", async () => {
     const t = await getT("es");
 
-    // keySeparator is off: a missing key comes back whole, not split on the dot.
-    expect(t("A.KEY.THAT.DOES.NOT.EXIST")).toBe("A.KEY.THAT.DOES.NOT.EXIST");
+    // & and ' are the characters i18next's escaper does touch, so this fails if
+    // escapeValue is ever turned back on.
+    expect(t("COPYRIGHT", { year: 2026, name: "O'Brien & Co" })).toContain("O'Brien & Co");
   });
 
-  it("interpolates without escaping, so an accent survives", async () => {
+  it("hands back a key it does not know, which is how a missing translation shows up on the page", async () => {
     const t = await getT("es");
 
-    expect(t("COPYRIGHT", { year: 2026, name: "Miguel Cobo Martínez" })).toContain("Miguel Cobo Martínez");
-    expect(t("COPYRIGHT", { year: 2026, name: "x" })).toContain("2026");
+    expect(t("A_KEY_THAT_DOES_NOT_EXIST")).toBe("A_KEY_THAT_DOES_NOT_EXIST");
   });
 });

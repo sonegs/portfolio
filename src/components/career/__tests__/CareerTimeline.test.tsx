@@ -44,26 +44,16 @@ describe("CareerTimeline.Entry", () => {
     expect(container.querySelectorAll('[data-current="false"]')).toHaveLength(1);
   });
 
-  it("breaks a detail written as several paragraphs into several paragraphs", () => {
+  it("splits a detail on blank lines only, so a single newline stays inside its paragraph", () => {
+    const fake = ((key: string) => (key.endsWith("_DETAIL") ? "uno\nsigue\n\ndos" : key)) as unknown as Translate;
+
     const { container } = render(
       <CareerTimeline>
-        <CareerTimeline.Entry stage={current} t={t} />
+        <CareerTimeline.Entry stage={current} t={fake} />
       </CareerTimeline>,
     );
 
-    // CAREER_SENIOR_DETAIL is the one entry written with a blank line in it.
-    expect(container.querySelectorAll("p").length).toBeGreaterThan(1);
-  });
-
-  it("orders the list so a reader gets the most recent role first", () => {
-    render(
-      <CareerTimeline>
-        <CareerTimeline.Entry stage={current} t={t} />
-        <CareerTimeline.Entry stage={past} t={t} />
-      </CareerTimeline>,
-    );
-
-    const periods = screen.getAllByText(/^\d{4} — /).map((node) => node.textContent);
-    expect(periods).toEqual(["2023 — hoy", "2016 — 2019"]);
+    const paragraphs = [...container.querySelectorAll("p")].map((node) => node.textContent);
+    expect(paragraphs).toEqual(["uno\nsigue", "dos"]);
   });
 });

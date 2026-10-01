@@ -19,7 +19,7 @@ describe("CareList.Instruction", () => {
       </CareList>,
     );
 
-    expect(container.querySelector("[aria-hidden]")).toBeInTheDocument();
+    expect(container.querySelector("li > span[aria-hidden]")).toBeInTheDocument();
     expect(screen.getByRole("listitem")).toHaveTextContent("Cualquier cosa");
   });
 });

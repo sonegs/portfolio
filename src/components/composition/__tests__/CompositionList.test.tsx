@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { CompositionList } from "@/components/composition";
-import { composition } from "@/content";
 import { getT, type Translate } from "@/i18n";
 
 let t: Translate;
@@ -18,7 +17,7 @@ describe("CompositionList.Material", () => {
       </CompositionList>,
     );
 
-    expect(container.querySelector("[aria-hidden]")).toHaveStyle({ width: "45%" });
+    expect(container.querySelector("li > div[aria-hidden]")).toHaveStyle({ width: "45%" });
   });
 
   it("hides the bar from readers, the number beside it already says the same", () => {
@@ -29,7 +28,7 @@ describe("CompositionList.Material", () => {
       </CompositionList>,
     );
 
-    expect(container.querySelector("[aria-hidden]")).toBeInTheDocument();
+    expect(container.querySelector("li > div[aria-hidden]")).toBeInTheDocument();
     expect(screen.getByText("25%")).toBeInTheDocument();
   });
 
@@ -47,12 +46,5 @@ describe("CompositionList.Material", () => {
       </CompositionList>,
     );
     expect(screen.getByText("Node")).toBeInTheDocument();
-  });
-});
-
-describe("the composition data", () => {
-  it("adds up to a whole, or the bars are lying about a proportion", () => {
-    const total = composition.reduce((sum, item) => sum + item.percentage, 0);
-    expect(total).toBe(100);
   });
 });
