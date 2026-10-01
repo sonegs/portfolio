@@ -20,6 +20,20 @@ describe("CareerSection", () => {
     expect(screen.getByText(`${open.from} — hoy`)).toBeInTheDocument();
   });
 
+  it("shows both ends of a period that has already closed", () => {
+    render(<CareerSection lang="es" />);
+
+    const closed = career.find((stage) => stage.to !== null);
+    expect(closed).toBeDefined();
+    expect(screen.getByText(`${closed!.from} — ${closed!.to}`)).toBeInTheDocument();
+  });
+
+  it("marks the stages that are over as not current, not merely absent", () => {
+    const { container } = render(<CareerSection lang="es" />);
+
+    expect(container.querySelectorAll('[data-current="false"]')).toHaveLength(career.length - 1);
+  });
+
   it("flags exactly one stage as current, so the rail lights one node", () => {
     const { container } = render(<CareerSection lang="es" />);
 

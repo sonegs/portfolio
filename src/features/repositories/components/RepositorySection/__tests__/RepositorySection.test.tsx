@@ -32,6 +32,16 @@ describe("RepositorySection", () => {
     expect(row).toHaveAttribute("rel", "noopener noreferrer");
   });
 
+  it("makes the whole row the link, not just the name", () => {
+    render(<RepositorySection lang="es" />);
+
+    const [repository] = repositories;
+    const row = screen.getByRole("link", { name: new RegExp(repository.name) });
+    expect(row).toHaveTextContent(repository.stack);
+    expect(row).toHaveTextContent(repository.year);
+    expect(row).toHaveTextContent(t(`REPO_${repository.key}_DESCRIPTION`));
+  });
+
   it("keeps the arrow out of the accessible name, it is decoration", () => {
     render(<RepositorySection lang="es" />);
 
