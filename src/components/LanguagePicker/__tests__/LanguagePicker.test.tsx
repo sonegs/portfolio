@@ -29,7 +29,7 @@ describe("LanguagePicker", () => {
 
 describe("the language links", () => {
   it("should navigate the document rather than soft navigate, so <html lang> is not left stale", () => {
-    const source = readFileSync("src/components/LanguagePicker/LanguagePicker.tsx", "utf8");
+    const source = readFileSync("src/components/LanguagePicker/LanguageLink.tsx", "utf8");
 
     expect(source).not.toMatch(/from "next\/link"/);
   });
