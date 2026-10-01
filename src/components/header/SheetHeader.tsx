@@ -1,6 +1,6 @@
 import { DataSheet } from "@/components/common";
 import { InlineLink } from "@/components/common";
-import { LanguagePicker } from "@/components/header";
+import LanguagePicker from "./LanguagePicker";
 import { Rule } from "@/components/common";
 import { ThemeToggle } from "@/components/theme";
 import { careerStart, profile } from "@/content";

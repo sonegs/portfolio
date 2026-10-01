@@ -1,4 +1,4 @@
-import { Rule } from "@/components/common";
+import Rule from "./Rule";
 
 // Every band of the sheet is the same three parts: a heading row, a hairline, a body.
 // They hang off Section so a caller composes what it needs in place — the bands with
