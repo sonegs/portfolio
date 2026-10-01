@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 import { middleware } from "@/middleware";
 
 function requestWith(acceptLanguage?: string) {
-  const headers = acceptLanguage === undefined ? {} : { "accept-language": acceptLanguage };
+  const headers: Record<string, string> = acceptLanguage === undefined ? {} : { "accept-language": acceptLanguage };
   return new NextRequest("https://example.com/", { headers });
 }
 
