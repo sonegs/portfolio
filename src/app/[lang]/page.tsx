@@ -24,7 +24,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         <div className="col-span-12 md:col-span-3 md:pt-[0.7rem]">
           <Portrait lang={lang} />
         </div>
-        <p className="col-span-12 min-w-0 max-w-[62ch] text-pretty text-lg leading-[1.55] md:col-span-9 md:text-[1.35rem]">
+        <p className="col-span-12 min-w-0 max-w-[62ch] text-pretty text-xl leading-[1.55] md:col-span-9 md:text-[1.45rem]">
           {t("SUMMARY")}
         </p>
       </Section>
