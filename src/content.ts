@@ -41,9 +41,9 @@ export const skills = [
   { name: "React", percentage: 80 },
   { name: "Next.js", percentage: 70 },
   { name: "Material UI", percentage: 70 },
+  { name: "TypeScript", percentage: 60 },
   { name: "GraphQL", percentage: 60 },
   { name: "Tailwind + shadcn", percentage: 50 },
-  { name: "TypeScript", percentage: 25 },
   { name: "Angular", percentage: 20 },
   { name: "PHP / MySQL", percentage: 10 },
 ];
