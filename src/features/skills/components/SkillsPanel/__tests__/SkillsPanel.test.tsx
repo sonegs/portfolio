@@ -5,7 +5,7 @@ import { getT } from "@/i18n";
 
 // The real list is all plain names, so a key has to be stood up here for the
 // panel to prove it resolves one.
-jest.mock("../../../../../content", () => ({
+jest.mock("@/content", () => ({
   skills: [
     { name: "TypeScript", percentage: 70 },
     { name: "FOCUS", percentage: 30 },
