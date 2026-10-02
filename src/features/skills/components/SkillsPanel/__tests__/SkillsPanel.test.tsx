@@ -3,6 +3,15 @@ import { skills } from "@/content";
 import { SkillsPanel } from "@/features/skills/components/SkillsPanel";
 import { getT } from "@/i18n";
 
+// The real list is all plain names, so a key has to be stood up here for the
+// panel to prove it resolves one.
+jest.mock("../../../../../content", () => ({
+  skills: [
+    { name: "TypeScript", percentage: 70 },
+    { name: "FOCUS", percentage: 30 },
+  ],
+}));
+
 const t = getT("es");
 
 describe("SkillsPanel", () => {
@@ -22,11 +31,16 @@ describe("SkillsPanel", () => {
     expect(screen.getByText(`${skills[0].percentage}%`)).toBeInTheDocument();
   });
 
-  it("should resolve every skill, whether it is a plain name or a translation key", () => {
+  it("should leave a plain name alone", () => {
     render(<SkillsPanel lang="es" />);
 
-    for (const skill of skills) {
-      expect(screen.getByText(t(skill.name))).toBeInTheDocument();
-    }
+    expect(screen.getByText("TypeScript")).toBeInTheDocument();
+  });
+
+  it("should resolve a name written as a translation key, instead of printing the key", () => {
+    render(<SkillsPanel lang="es" />);
+
+    expect(screen.getByText(t("FOCUS"))).toBeInTheDocument();
+    expect(screen.queryByText("FOCUS")).not.toBeInTheDocument();
   });
 });

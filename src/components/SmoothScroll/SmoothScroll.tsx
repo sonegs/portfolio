@@ -51,6 +51,7 @@ function SmoothScroll() {
         return;
       }
 
+      // TODO: let a nested scroller (the testimonial rail) keep its wheel, and apply deltaX.
       event.preventDefault();
       const furthest = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
       target = Math.min(Math.max(target + pixels(event), 0), furthest);
