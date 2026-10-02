@@ -35,11 +35,9 @@ export const education = [
   { key: "SMR", school: "IES Virgen del Carmen", from: "2008", to: "2010" },
 ];
 
-export const composition = [
-  { material: "React / Next.js", percentage: 60 },
-  { material: "TypeScript", percentage: 25 },
-  { material: "PHP / MySQL", percentage: 10 },
-  { material: "Angular", percentage: 5 },
+export const skills = [
+  { name: "React / Next.js", percentage: 60 },
+  { name: "TypeScript", percentage: 25 },
+  { name: "PHP / MySQL", percentage: 10 },
+  { name: "Angular", percentage: 5 },
 ];
-
-export const careInstructions = ["CARE_ACCESSIBILITY", "CARE_DEPENDENCIES", "CARE_REVIEW", "CARE_MOTION"];

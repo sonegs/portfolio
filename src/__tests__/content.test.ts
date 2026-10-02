@@ -1,4 +1,4 @@
-import { career, careerStart, composition, education, profile, repositories, testimonials } from "@/content";
+import { career, careerStart, education, profile, repositories, skills, testimonials } from "@/content";
 
 describe("career", () => {
   it("should run newest first, which is the order the page trusts", () => {
@@ -34,9 +34,9 @@ describe("education", () => {
   });
 });
 
-describe("composition", () => {
+describe("skills", () => {
   it("should add up to a whole, or the bars lie about a proportion", () => {
-    const total = composition.reduce((sum, item) => sum + item.percentage, 0);
+    const total = skills.reduce((sum, skill) => sum + skill.percentage, 0);
 
     expect(total).toBe(100);
   });

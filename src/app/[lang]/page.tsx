@@ -1,10 +1,10 @@
+import { PersonJsonLd } from "@/components/PersonJsonLd";
 import { Portrait } from "@/components/Portrait";
 import { Section } from "@/components/Section";
 import { SheetFooter } from "@/components/SheetFooter";
 import { SheetHeader } from "@/components/SheetHeader";
-import { CarePanel } from "@/features/care/components/CarePanel";
 import { CareerSection } from "@/features/career/components/CareerSection";
-import { CompositionPanel } from "@/features/composition/components/CompositionPanel";
+import { SkillsPanel } from "@/features/skills/components/SkillsPanel";
 import { EducationSection } from "@/features/education/components/EducationSection";
 import { RepositorySection } from "@/features/repositories/components/RepositorySection";
 import { TestimonialSection } from "@/features/testimonials/components/TestimonialSection";
@@ -17,6 +17,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
 
   return (
     <main className="mx-auto max-w-[78rem] overflow-x-clip px-5 pb-28 md:px-10">
+      <PersonJsonLd lang={lang} />
       <SheetHeader lang={lang} />
 
       <Section className="grid grid-cols-12 items-start gap-x-8 gap-y-8 pt-16 md:pt-24">
@@ -33,9 +34,8 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
       <RepositorySection lang={lang} />
       <TestimonialSection lang={lang} />
 
-      <Section className="grid grid-cols-12 gap-x-8 gap-y-14 pt-20 md:pt-28">
-        <CompositionPanel lang={lang} />
-        <CarePanel lang={lang} />
+      <Section>
+        <SkillsPanel lang={lang} />
       </Section>
 
       <SheetFooter lang={lang} />

@@ -3,7 +3,7 @@
 // keys, and every key the data builds from a template actually translated.
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { career, careInstructions, composition, education, repositories, testimonials } from "../src/content.ts";
+import { career, education, repositories, skills, testimonials } from "../src/content.ts";
 
 const localesDir = "public/locales";
 const languages = readdirSync(localesDir).filter((entry) => !entry.startsWith("."));
@@ -34,8 +34,7 @@ const used = [
     `TESTIMONIAL_${testimonial.key}_RELATION`,
   ]),
   ...education.map((entry) => `EDUCATION_${entry.key}_TITLE`),
-  ...composition.map((item) => item.material).filter(isKey),
-  ...careInstructions,
+  ...skills.map((skill) => skill.name).filter(isKey),
 ];
 
 const [reference, ...rest] = languages;
