@@ -166,21 +166,27 @@ body {
   }
 }
 
-/* The scroll itself draws the bar. Where view() is not supported the animation keeps
-   its own clock and simply plays on load, which is the old behaviour. */
+/* The scroll itself draws the bar. Where a view timeline is not supported both
+   properties drop together and the animation keeps its own clock, playing on load
+   over the duration below, which is the old behaviour. */
 .skill-row {
   view-timeline-name: --skill-row;
 }
 
 /* The bar is two pixels tall, so its own entry phase lasts two pixels of scroll and
    the fill is over before it can be seen. The row it sits in is the subject the
-   scroll can actually measure. */
+   scroll can actually measure.
+
+   The range is a length rather than a percentage because the panel is the last thing
+   on the page: under the bottom row there is only the footer, so the rows there have
+   a fixed run of scroll left and a share of the viewport would be a finish line a
+   tall window never reaches. */
 .bar {
   transform: scaleX(0);
   transform-origin: left;
   animation: fill 1100ms var(--ease-out) both;
   animation-timeline: --skill-row;
-  animation-range: cover 15% cover 70%;
+  animation-range: cover 0 cover 260px;
 }
 
 .rail {

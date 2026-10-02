@@ -42,6 +42,8 @@ describe("skills", () => {
   });
 
   it("should keep every percentage on a scale a bar can draw", () => {
+    expect(skills.length).toBeGreaterThan(0);
+
     for (const skill of skills) {
       expect(skill.percentage).toBeGreaterThan(0);
       expect(skill.percentage).toBeLessThanOrEqual(100);
