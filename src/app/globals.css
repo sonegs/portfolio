@@ -168,12 +168,19 @@ body {
 
 /* The scroll itself draws the bar. Where view() is not supported the animation keeps
    its own clock and simply plays on load, which is the old behaviour. */
+.skill-row {
+  view-timeline-name: --skill-row;
+}
+
+/* The bar is two pixels tall, so its own entry phase lasts two pixels of scroll and
+   the fill is over before it can be seen. The row it sits in is the subject the
+   scroll can actually measure. */
 .bar {
   transform: scaleX(0);
   transform-origin: left;
-  animation: fill 700ms var(--ease-out) both;
-  animation-timeline: view();
-  animation-range: entry 10% entry 90%;
+  animation: fill 1100ms var(--ease-out) both;
+  animation-timeline: --skill-row;
+  animation-range: cover 15% cover 70%;
 }
 
 .rail {

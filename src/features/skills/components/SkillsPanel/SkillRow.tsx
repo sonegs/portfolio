@@ -6,7 +6,7 @@ function SkillRow({ skill, lang }: { skill: (typeof skills)[number]; lang: Langu
   const share = `${skill.percentage}%`;
 
   return (
-    <li className="border-b border-rule/60 py-3">
+    <li className="skill-row border-b border-rule/60 py-3">
       <div className="flex items-baseline justify-between gap-4">
         <span translate="no">{t(skill.name)}</span>
         <span className="text-ink-soft">{share}</span>
