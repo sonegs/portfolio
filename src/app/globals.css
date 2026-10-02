@@ -142,7 +142,7 @@ body {
 }
 
 .entry:hover::after,
-.entry:focus-within::after {
+.entry:has(:focus-visible)::after {
   transform: scaleX(1);
 }
 
@@ -150,14 +150,30 @@ body {
   opacity: 0;
   transform: translate(-4px, 2px);
   transition:
-    opacity 200ms var(--ease-out),
-    transform 200ms var(--ease-out);
+    opacity 320ms var(--ease-out),
+    transform 320ms var(--ease-out);
 }
 
 .entry:hover .arrow,
-.entry:focus-within .arrow {
+.entry:has(:focus-visible) .arrow {
   opacity: 1;
   transform: none;
+}
+
+@keyframes fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* The scroll itself draws the bar. Where view() is not supported the animation keeps
+   its own clock and simply plays on load, which is the old behaviour. */
+.bar {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: fill 700ms var(--ease-out) both;
+  animation-timeline: view();
+  animation-range: entry 10% entry 90%;
 }
 
 .rail {
@@ -183,8 +199,13 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .rule-in,
-  .settle {
+  .settle,
+  .bar {
     animation: none;
+  }
+
+  .bar {
+    transform: none;
   }
 
   :root,
@@ -196,5 +217,56 @@ body {
   .arrow {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media print {
+  .rule-in,
+  .settle,
+  .bar {
+    animation: none;
+  }
+
+  .bar {
+    transform: none;
+  }
+
+  /* Hover affordances have no meaning on paper. */
+  .arrow,
+  .entry::after {
+    display: none;
+  }
+
+  /* The rail scrolls sideways on screen; on paper it has to stack. */
+  .rail {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    overflow-x: visible;
+  }
+
+  main {
+    padding-bottom: 0;
+  }
+
+  header,
+  section,
+  footer {
+    padding-top: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3.25rem;
+  }
+
+  li,
+  .entry {
+    break-inside: avoid;
+  }
+
+  /* A printed link cannot be followed, so the ones in the footer carry their address. */
+  footer a[href^="http"]::after {
+    content: " · " attr(href);
+    font-size: 0.8em;
+    word-break: break-all;
   }
 }

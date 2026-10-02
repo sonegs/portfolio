@@ -9,9 +9,10 @@ pnpm lint            # eslint, no warnings allowed
 pnpm typecheck
 pnpm format          # prettier
 pnpm check:locales   # same keys in every language, none left untranslated
+pnpm test            # jest
 ```
 
-A husky pre-commit hook runs `format:check`, `lint` and `check:locales`.
+A husky pre-commit hook runs `format:check`, `lint`, `check:locales`, `test` and `typecheck`.
 `AGENTS.md` holds the conventions.
 
 ## Where to edit what
@@ -19,7 +20,8 @@ A husky pre-commit hook runs `format:check`, `lint` and `check:locales`.
 - `public/locales/<language>/common.json` — all the copy, with uppercase keys. Adding a language means creating the folder and listing it in `languages` in `src/i18n.ts`.
 - `src/content.ts` — the data that is never translated: names, dates, technologies, percentages and repositories. A value in SCREAMING_SNAKE_CASE is a translation key.
   Identifiers, comments and this file are written in English; the copy lives in the language files.
-- `src/app/globals.css` — the design tokens: paper, ink, rule, dye, in light and dark, plus the load animation. The shadcn tokens hang off those same colours.
+- `src/app/theme.css` — the design tokens: paper, ink, rule, dye, in light and dark. The shadcn tokens hang off those same colours.
+- `src/app/globals.css` — the base styles and the load animation, on top of those tokens.
 - `src/app/[lang]/page.tsx` — the composition of the sheet.
 
 ## Languages and theme
@@ -30,7 +32,7 @@ There is no client provider because no client component translates anything.
 
 The theme is handled by `next-themes` (a `class` on `<html>`, following the system by
 default) and switches with the button in the top corner. Components come from shadcn/ui
-(`pnpm dlx shadcn@latest add <component>`) and use the sheet's palette, with radius 0.
+(`pnpm dlx shadcn@latest add <component>`) and use the sheet's palette, with a hair of radius (`--radius`, 0.25rem).
 
 ## Publishing
 

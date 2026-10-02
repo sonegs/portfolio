@@ -14,7 +14,7 @@ function SheetHeader({ lang }: { lang: Language }) {
     <header className="pt-6">
       <div className="label flex items-baseline justify-between gap-4 pb-3 text-[0.68rem] text-ink-soft">
         <span>{t("SHEET_REVISION")}</span>
-        <div className="flex items-baseline gap-6">
+        <div className="flex items-baseline gap-6 print:hidden">
           <LanguagePicker current={lang} />
           <ThemeToggle label={t("THEME_TOGGLE")} />
         </div>

@@ -33,6 +33,22 @@
   --dye: #9aa7ff;
 }
 
+/* Paper is already white and the dye survives a colour printer; only the page
+   background and the dark theme have to give way. */
+@media print {
+  :root,
+  .dark {
+    color-scheme: light;
+
+    --paper: #fff;
+    --paper-shade: #fff;
+    --ink: #16181a;
+    --ink-soft: #4a4e52;
+    --rule: #9ea29a;
+    --dye: #2f3a8f;
+  }
+}
+
 @property --paper {
   syntax: "<color>";
   inherits: true;
