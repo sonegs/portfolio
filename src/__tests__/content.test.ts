@@ -35,10 +35,17 @@ describe("education", () => {
 });
 
 describe("skills", () => {
-  it("should add up to a whole, or the bars lie about a proportion", () => {
-    const total = skills.reduce((sum, skill) => sum + skill.percentage, 0);
+  it("should run from the longest bar down, which is the order the panel trusts", () => {
+    const percentages = skills.map((skill) => skill.percentage);
 
-    expect(total).toBe(100);
+    expect(percentages).toEqual([...percentages].sort((a, b) => b - a));
+  });
+
+  it("should keep every percentage on a scale a bar can draw", () => {
+    for (const skill of skills) {
+      expect(skill.percentage).toBeGreaterThan(0);
+      expect(skill.percentage).toBeLessThanOrEqual(100);
+    }
   });
 });
 

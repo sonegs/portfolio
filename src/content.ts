@@ -35,9 +35,15 @@ export const education = [
   { key: "SMR", school: "IES Virgen del Carmen", from: "2008", to: "2010" },
 ];
 
+// A percentage is how far along that one skill is on its own, not a share of a whole:
+// they are read one row at a time and do not add up to anything.
 export const skills = [
-  { name: "React / Next.js", percentage: 60 },
+  { name: "React", percentage: 80 },
+  { name: "Next.js", percentage: 70 },
+  { name: "Material UI", percentage: 70 },
+  { name: "GraphQL", percentage: 60 },
+  { name: "Tailwind + shadcn", percentage: 50 },
   { name: "TypeScript", percentage: 25 },
+  { name: "Angular", percentage: 20 },
   { name: "PHP / MySQL", percentage: 10 },
-  { name: "Angular", percentage: 5 },
 ];
