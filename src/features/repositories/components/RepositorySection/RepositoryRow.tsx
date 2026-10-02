@@ -5,7 +5,7 @@ function RepositoryRow({ repository, lang }: { repository: (typeof repositories)
   const t = getT(lang);
 
   return (
-    <li className="entry group relative border-b border-rule/60">
+    <li className="entry relative border-b border-rule/60">
       <a
         className="grid grid-cols-12 items-baseline gap-x-6 py-5 md:py-6"
         href={`${profile.github}/${repository.name}`}

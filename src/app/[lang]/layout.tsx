@@ -1,3 +1,4 @@
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
@@ -52,6 +53,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   return (
     <html lang={lang} className={`${archivo.variable} antialiased`} suppressHydrationWarning>
       <body className="font-sans">
+        <SmoothScroll />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
